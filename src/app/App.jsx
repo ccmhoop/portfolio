@@ -32,7 +32,7 @@ function App() {
                                     className="social-link"
                                 >
                                     <p>
-                                        About me
+                                        About
                                     </p>
                                 </Link>
                                 <Link
@@ -53,58 +53,67 @@ function App() {
                                         Contact
                                     </p>
                                 </Link>
+                                <Link
+                                    to="/portfolio"
+                                    aria-label="LinkedIn profile"
+                                    className="social-link"
+                                >
+                                    <p>
+                                        Experience
+                                    </p>
+                                </Link>
                             </li>
                         </ul>
                     </nav>
                 </div>
 
-                <div className="header-grid-right">
-                    <nav aria-label="Social links">
-                        <ul className="social-links">
-                            <li className="social-item">
-                                <Link
-                                    to="/portfolio"
-                                    aria-label="LinkedIn profile"
-                                    className="social-link"
-                                >
-                                    <ImLinkedin
-                                        size={25}
-                                        color="#000000"
-                                        aria-hidden="true"
-                                        focusable="false"
-                                    />
-                                </Link>
-                                <Link
-                                    to="/portfolio"
-                                    aria-label="LinkedIn profile"
-                                    className="social-link"
-                                >
-                                    <ImLinkedin
-                                        size={25}
-                                        color="#000000"
-                                        aria-hidden="true"
-                                        focusable="false"
-                                    />
-                                </Link>
-                                <Link
-                                    to="/portfolio"
-                                    aria-label="LinkedIn profile"
-                                    className="social-link"
-                                >
-                                    <ImLinkedin
-                                        size={25}
-                                        color="#000000"
-                                        aria-hidden="true"
-                                        focusable="false"
-                                    />
-                                </Link>
-                            </li>
-                        </ul>
-                    </nav>
-                    <a href="https://react.dev" target="_blank">
-                        <img src={reactLogo} className="logo react" alt="React logo"/>
-                    </a>
-                </div>
+                {/*<div className="header-grid-right">*/}
+                {/*    <nav aria-label="Social links">*/}
+                {/*        <ul className="social-links">*/}
+                {/*            <li className="social-item">*/}
+                {/*                <Link*/}
+                {/*                    to="/portfolio"*/}
+                {/*                    aria-label="LinkedIn profile"*/}
+                {/*                    className="social-link"*/}
+                {/*                >*/}
+                {/*                    <ImLinkedin*/}
+                {/*                        size={25}*/}
+                {/*                        color="#000000"*/}
+                {/*                        aria-hidden="true"*/}
+                {/*                        focusable="false"*/}
+                {/*                    />*/}
+                {/*                </Link>*/}
+                {/*                <Link*/}
+                {/*                    to="/portfolio"*/}
+                {/*                    aria-label="LinkedIn profile"*/}
+                {/*                    className="social-link"*/}
+                {/*                >*/}
+                {/*                    <ImLinkedin*/}
+                {/*                        size={25}*/}
+                {/*                        color="#000000"*/}
+                {/*                        aria-hidden="true"*/}
+                {/*                        focusable="false"*/}
+                {/*                    />*/}
+                {/*                </Link>*/}
+                {/*                <Link*/}
+                {/*                    to="/portfolio"*/}
+                {/*                    aria-label="LinkedIn profile"*/}
+                {/*                    className="social-link"*/}
+                {/*                >*/}
+                {/*                    <ImLinkedin*/}
+                {/*                        size={25}*/}
+                {/*                        color="#000000"*/}
+                {/*                        aria-hidden="true"*/}
+                {/*                        focusable="false"*/}
+                {/*                    />*/}
+                {/*                </Link>*/}
+                {/*            </li>*/}
+                {/*        </ul>*/}
+                {/*    </nav>*/}
+                {/*    <a href="https://react.dev" target="_blank">*/}
+                {/*        <img src={reactLogo} className="logo react" alt="React logo"/>*/}
+                {/*    </a>*/}
+                {/*</div>*/}
 
             </header>
             <div className="content">
