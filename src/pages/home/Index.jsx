@@ -1,5 +1,8 @@
 import viteLogo from "/vite.svg";
 import reactLogo from "/react.svg";
+import profilePicture from "/profilePicTest.jpg"
+import javaLogo from "/javaLogo.png";
+import springLogo from "/springLogo.png";
 import {useState} from "react";
 import "./Style.css"
 import {Link} from "react-router";
@@ -12,16 +15,37 @@ const HomePage = () => {
                 <title>
                     Conner de Hoop
                 </title>
+                <div className="social-profile-wrapper">
+                    <div className="profile-picture-container">
+                        <img src={profilePicture} alt="Vite logo"/>
+                    </div>
+                    <h2>
+                        Conner de Hoop
+                    </h2>
+
+                    <div className="logo-wrapper">
+                        <a href="https://react.dev" target="_blank">
+                            <img src={reactLogo} className="logo react" alt="React logo"/>
+                        </a>
+                        <div className="logo-container">
+                            <img src={javaLogo} className="logo react" alt="React logo"/>
+                        </div>
+                        <div className="logo-container">
+                            <img src={springLogo} className="logo react" alt="React logo"/>
+                        </div>
+                    </div>
+                    <p>
+                        Software Developer
+                    </p>
+                </div>
+
+
 
                 <div className="card">
 
                     <h2>
                         I'm Conner de Hoop
                     </h2>
-
-                    <a href="https://react.dev" target="_blank">
-                        <img src={reactLogo} className="logo react" alt="React logo"/>
-                    </a>
                     <div className="buttons">
                         <Link to="/portfolio/projects" >
                             <button>
