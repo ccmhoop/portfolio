@@ -2,6 +2,7 @@ import {useState} from 'react'
 import leafsVertical from '../assets/leafsVertical.jpg'
 import viteLogo from '/vite.svg'
 import {ImLinkedin} from "react-icons/im";
+import reactLogo from "/react.svg";
 import './App.css'
 import {Link, Outlet} from "react-router";
 
@@ -10,32 +11,108 @@ function App() {
 
     return (
         <div className="layout">
-
-            <div className="content">
-                <div className="name-bar">
+            <header className="header-bar">
+                <div className="header-grid-left">
+                    <div className="name-circle">
+                        <p>
+                            C
+                        </p>
+                    </div>
                     <p>
                         CONNER
                     </p>
                 </div>
-                <div className="social-bar">
-                    <li>
-                        <Link to="/portfolio">
-                            <ImLinkedin size={25} color="#000000"/>
-                        </Link>
-                    </li>
+                <div className="header-grid-middle">
+                    <nav aria-label="Social links">
+                        <ul className="social-links">
+                            <li className="social-item">
+                                <Link
+                                    to="/portfolio"
+                                    aria-label="LinkedIn profile"
+                                    className="social-link"
+                                >
+                                    <p>
+                                        About me
+                                    </p>
+                                </Link>
+                                <Link
+                                    to="/portfolio"
+                                    aria-label="LinkedIn profile"
+                                    className="social-link"
+                                >
+                                    <p>
+                                        Projects
+                                    </p>
+                                </Link>
+                                <Link
+                                    to="/portfolio"
+                                    aria-label="LinkedIn profile"
+                                    className="social-link"
+                                >
+                                    <p>
+                                        Contact
+                                    </p>
+                                </Link>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-                <div className="outlet-background">
-                    <div className="outlet-content">
-                        <Outlet/>
-                    </div>
+
+                <div className="header-grid-right">
+                    <nav aria-label="Social links">
+                        <ul className="social-links">
+                            <li className="social-item">
+                                <Link
+                                    to="/portfolio"
+                                    aria-label="LinkedIn profile"
+                                    className="social-link"
+                                >
+                                    <ImLinkedin
+                                        size={25}
+                                        color="#000000"
+                                        aria-hidden="true"
+                                        focusable="false"
+                                    />
+                                </Link>
+                                <Link
+                                    to="/portfolio"
+                                    aria-label="LinkedIn profile"
+                                    className="social-link"
+                                >
+                                    <ImLinkedin
+                                        size={25}
+                                        color="#000000"
+                                        aria-hidden="true"
+                                        focusable="false"
+                                    />
+                                </Link>
+                                <Link
+                                    to="/portfolio"
+                                    aria-label="LinkedIn profile"
+                                    className="social-link"
+                                >
+                                    <ImLinkedin
+                                        size={25}
+                                        color="#000000"
+                                        aria-hidden="true"
+                                        focusable="false"
+                                    />
+                                </Link>
+                            </li>
+                        </ul>
+                    </nav>
+                    <a href="https://react.dev" target="_blank">
+                        <img src={reactLogo} className="logo react" alt="React logo"/>
+                    </a>
                 </div>
-            </div>
-            <div className="image-bar">
-                <img src={leafsVertical} alt="React Logo"/>
+
+            </header>
+            <div className="content">
+                <Outlet/>
             </div>
         </div>
 
-)
+    )
 }
 
 export default App
