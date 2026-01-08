@@ -1,14 +1,10 @@
-import viteLogo from "/vite.svg";
 import reactLogo from "/react.svg";
 import profilePicture from "/profilePicTest.jpg"
 import javaLogo from "/javaLogo.png";
 import springLogo from "/springLogo.png";
-import {useState} from "react";
 import "./Style.css"
-import {Link} from "react-router";
 
 const HomePage = () => {
-    const [count, setCount] = useState(0)
 
     return (
         <section className="home-page">
@@ -40,7 +36,6 @@ const HomePage = () => {
                     </p>
                 </div>
                 <div className="card">
-
                     <h3>
                         About me
                     </h3>
@@ -57,10 +52,41 @@ const HomePage = () => {
                     <button className={"button"}>
                         Download CV
                     </button>
+                    <div className="interests-education-wrapper">
+                        <div className="interests-container">
+                            <h3>
+                                Interests
+                            </h3>
+                            <ul>
+                                <li>Programming</li>
+                                <li>Web Development</li>
+                                <li>Software Engineering</li>
+                            </ul>
+                        </div>
+                        <div className="education-container">
+                            <h3>
+                                Education
+                            </h3>
+                            <ul>
+                                <li>
+                                    Java Software Developer
+                                    <br/>
+                                    <span>
+                                        ITvitae Amersfoort
+                                    </span>
+                                </li>
+                                <li>
+                                    Financial Administration
+                                    <br/>
+                                    <span>
+                                       Cebos Amersfoort
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-
         </section>
 
     )

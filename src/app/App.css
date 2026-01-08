@@ -84,35 +84,35 @@
     font-size: 1em;
 }
 
-.header-grid-right{
-    grid-column: 3;
-    grid-row: 1;
-    display: inline-flex;
-    align-items: center;
-    justify-content: end;
-}
+/*.header-grid-right{*/
+/*    grid-column: 3;*/
+/*    grid-row: 1;*/
+/*    display: inline-flex;*/
+/*    align-items: center;*/
+/*    justify-content: end;*/
+/*}*/
 
-.social-links {
-    list-style: none;
-    margin: 0;
-    display: flex;
-}
+/*.social-links {*/
+/*    list-style: none;*/
+/*    margin: 0;*/
+/*    display: flex;*/
+/*}*/
 
-.social-item {
-    display: flex;
-    gap: 0.5em;
-}
+/*.social-item {*/
+/*    display: flex;*/
+/*    gap: 0.5em;*/
+/*}*/
 
-.social-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
+/*.social-link {*/
+/*    display: inline-flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*}*/
 
-.social-link:focus-visible {
-    outline: 2px solid #000;
-    outline-offset: 2px;
-}
+/*.social-link:focus-visible {*/
+/*    outline: 2px solid #000;*/
+/*    outline-offset: 2px;*/
+/*}*/
 
 .content {
     grid-column: 1;
@@ -125,7 +125,7 @@
     background-image: url('../assets/sunsetBackground.jpg');
     background-size: cover;
     background-position: center;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 

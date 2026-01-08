@@ -7,9 +7,9 @@ import {HomePage} from "./pages/home/Index.jsx";
 import  {NotFoundPage} from "./pages/notFound/Index.jsx";
 
 const router = createBrowserRouter([
-    {index: '/portfolio', element: <App/> ,
+    {index: '/portfolio/', element: <App/> ,
         children:[
-            {path: '/portfolio', element: <HomePage/>},
+            {path: '/portfolio/', element: <HomePage/>},
             {path: '/portfolio/projects', element: <HomePage/>},
         ]
     },
