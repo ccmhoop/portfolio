@@ -13,14 +13,17 @@ function App() {
         <div className="layout">
             <header className="header-bar">
                 <div className="header-grid-left">
-                    <div className="name-circle">
+                    <div className="name-container">
+                        <div className="name-circle">
+                            <p>
+                                C
+                            </p>
+                        </div>
                         <p>
-                            C
+                            CONNER
                         </p>
                     </div>
-                    <p>
-                        CONNER
-                    </p>
+
                 </div>
                 <div className="header-grid-middle">
                     <nav aria-label="Social links">

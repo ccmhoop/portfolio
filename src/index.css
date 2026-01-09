@@ -27,6 +27,9 @@ a:hover {
 body {
   margin: 0;
   place-items: center;
+  background-image: url('./assets/sunsetBackground.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   /*width: 100vw;*/
   /*min-width: 320px;*/
   min-height: 100vh;
