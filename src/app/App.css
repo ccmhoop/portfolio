@@ -1,8 +1,8 @@
 .layout {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*align-items: start;*/
+    /*justify-content: start;*/
     width: 100vw;
     height: 100vh;
 }
@@ -25,15 +25,16 @@
 }
 
 .content {
+    position: absolute;
+    top: 3rem;
+    left: 0;
     grid-row: 2;
     width: 100vw;
-    height: calc(100vh - 3rem);
-    /*height: fit-content;*/
+    min-height: calc(100vh - 3rem);
+    max-height: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    padding: 0 0 .5rem 0;
 }
 
 
@@ -55,7 +56,6 @@
 }
 
 .name-container{
-    /*height: clamp(3rem, 1vw, 20px);*/
     height: inherit;
     display: flex;
     columns: 2;
@@ -66,7 +66,6 @@
 }
 
 .name-circle {
-
     background: #000000;
     border-radius: 50%;
     width: clamp(2.5rem, 1vw, 20px);
@@ -147,19 +146,6 @@
 /*    outline-offset: 2px;*/
 /*}*/
 
-.content {
-    grid-column: 1;
-    grid-row: 2;
-    width: 100vw;
-    height: 95vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /*background-image: url('../assets/sunsetBackground.jpg');*/
-    /*background-size: cover;*/
-    /*background-position: center;*/
-    /*padding: .5em 0 .5em 0;*/
-}
 
 
 
