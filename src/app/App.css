@@ -33,7 +33,7 @@
     min-height: calc(100vh - 3rem);
     max-height: fit-content;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
 }
 

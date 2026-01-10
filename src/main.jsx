@@ -5,17 +5,28 @@ import App from './app/App.jsx'
 import {createBrowserRouter, RouterProvider} from "react-router";
 import {HomePage} from "./pages/home/Index.jsx";
 import  {NotFoundPage} from "./pages/notFound/Index.jsx";
+import {ProjectsPage} from "./pages/projects/Index.jsx";
 
 const router = createBrowserRouter([
-    {index: '/portfolio/', element: <App/> ,
-        children:[
-            {path: '/portfolio/', element: <HomePage/>},
-            {path: '/portfolio/projects', element: <HomePage/>},
+    {
+        path: "/portfolio",
+        element: <App />,
+        children: [
+            {
+                index: true,
+                element: <HomePage />
+            },
+            {
+                path: "projects",
+                element: <ProjectsPage />
+            }
         ]
     },
-    {path: '*', element: <NotFoundPage/>}
-])
-
+    {
+        path: "*",
+        element: <NotFoundPage />
+    }
+]);
 createRoot(document.getElementById('root')).render(
     <StrictMode>
         <RouterProvider router={router}/>

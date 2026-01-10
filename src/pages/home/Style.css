@@ -3,7 +3,8 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 100vw;
+    min-height: calc(100vh - 3rem);
 }
 
 .about-wrapper {

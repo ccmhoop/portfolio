@@ -2,6 +2,8 @@ import reactLogo from "/react.svg";
 import profilePicture from "/profilePicTest.jpg"
 import javaLogo from "/javaLogo.png";
 import springLogo from "/springLogo.png";
+import {globalOptions, homeOptions} from "../../options/options.js";
+import {mapInterestsToLi, mapEducationToLi} from "./component/MapToElement.jsx"
 import "./Style.css"
 
 const HomePage = () => {
@@ -9,7 +11,7 @@ const HomePage = () => {
     return (
         <section className="home-page">
             <title>
-                Conner de Hoop
+                {globalOptions.fullName}
             </title>
             <div className="about-wrapper">
                 <div className="social-profile-wrapper">
@@ -17,7 +19,7 @@ const HomePage = () => {
                         <img src={profilePicture} alt="Vite logo"/>
                     </div>
                     <h2>
-                        Conner de Hoop
+                        {globalOptions.fullName}
                     </h2>
 
                     <div className="logo-wrapper">
@@ -32,22 +34,15 @@ const HomePage = () => {
                         </div>
                     </div>
                     <p>
-                        Software Developer
+                        {globalOptions.profession}
                     </p>
                 </div>
                 <div className="card">
-                    <h3>
-                        About me
-                    </h3>
+                    <h2>
+                        {homeOptions.aboutMeTitle}
+                    </h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cupiditate dicta dolorum
-                        enim
-                        error inventore, ipsam nisi odio sed ut? Esse et ex illum iste labore magnam quis sequi soluta?
-                        Et ipsa magnam odio pariatur praesentium? Asperiores laborum libero molestiae praesentium qui,
-                        sint
-                        ut veritatis voluptates. Alias atque deleniti dolorem iste, obcaecati possimus quis soluta
-                        tempora
-                        voluptatem? Accusantium, mollitia, rem.
+                        {homeOptions.aboutMeDescription}
                     </p>
                     <button className={"button"}>
                         Download CV
@@ -55,33 +50,18 @@ const HomePage = () => {
                     <div className="interests-education-wrapper">
                         <div className="interests-container">
                             <h3>
-                                Interests
+                                {homeOptions.interestsTitle}
                             </h3>
                             <ul>
-                                <li>Programming</li>
-                                <li>Web Development</li>
-                                <li>Software Engineering</li>
+                                {mapInterestsToLi()}
                             </ul>
                         </div>
                         <div className="education-container">
                             <h3>
-                                Education
+                                {homeOptions.educationTitle}
                             </h3>
                             <ul>
-                                <li>
-                                    Java Software Developer
-                                    <br/>
-                                    <span>
-                                        ITvitae Amersfoort
-                                    </span>
-                                </li>
-                                <li>
-                                    Financial Administration
-                                    <br/>
-                                    <span>
-                                       Cebos Amersfoort
-                                    </span>
-                                </li>
+                                {mapEducationToLi()}
                             </ul>
                         </div>
                     </div>

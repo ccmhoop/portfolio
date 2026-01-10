@@ -1,0 +1,22 @@
+.projects-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+    width: 100vw;
+    min-height: calc(100vh - 3rem);
+}
+
+.projects-layout-container{
+    /*margin:  0 auto;*/
+    /*width: 95vw;*/
+    columns: 4 300px;
+    column-gap: 1em;
+}
+
+.project-card{
+    margin: 1em auto;
+    width: clamp( 300px , 32vw, 400px);
+    height: clamp( 200px , calc((100vh - 3rem) / 10), 300px);
+    background: #1a1a1a;
+}
