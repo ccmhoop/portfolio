@@ -1,21 +1,19 @@
 import "./Style.css"
+import ProjectCard from "./component/ProjectCard.jsx";
 
 const ProjectsPage = () => {
     return (
         <section className="projects-page">
             <div className="projects-layout-container">
-                <div className="project-card">
-
-                </div>
-                <div className="project-card">
-
-                </div>
-                <div className="project-card">
-
-                </div>
-                <div className="project-card">
-
-                </div>
+                <ProjectCard />
+                <ProjectCard />
+                <ProjectCard />
+                <ProjectCard />
+                <ProjectCard />
+                <ProjectCard />
+                <ProjectCard />
+                <ProjectCard />
+                <ProjectCard />
             </div>
 
         </section>

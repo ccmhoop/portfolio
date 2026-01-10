@@ -1,4 +1,5 @@
 import {homeOptions} from '../../../options/options.js'
+import {TbSchool} from "react-icons/tb";
 
 const mapInterestsToLi = () => {
     return homeOptions.interestsArray.map((item, index) => {
@@ -10,11 +11,11 @@ const mapEducationToLi = () => {
     return homeOptions.educationObjectArray.map((item, index) => {
         return (
             <li key={index}>
-                {item.course}
-                <br/>
-                <span>
-                    {item.school}
-                </span>
+                <div className="education-header">
+                    <TbSchool size={20} aria-hidden="true" />
+                    <strong>{item.course}</strong>
+                </div>
+                <span className="education-school">{item.school}</span>
             </li>
         )
     })

@@ -23,9 +23,4 @@ const homeOptions = {
     ]
 }
 
-
-
-
-
-
 export {globalOptions, homeOptions}

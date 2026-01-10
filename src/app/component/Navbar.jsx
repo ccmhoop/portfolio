@@ -1,4 +1,5 @@
 import {Link} from "react-router";
+import {GoMoon} from "react-icons/go";
 
 export default function NavBar() {
     return (
@@ -59,6 +60,7 @@ export default function NavBar() {
                         </li>
                     </ul>
                 </nav>
+                <GoMoon size={25} color={"#000000"}  aria-hidden="true" />
             </div>
 
             {/*<div className="header-grid-right">*/}
