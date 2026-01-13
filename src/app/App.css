@@ -27,7 +27,6 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 3em 0;
 }
 
 .header-grid-left {
@@ -154,6 +153,14 @@
     justify-content: flex-end;
 }
 
+.mobile-page-title {
+    display: none;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
 .burger-menu {
     display: none;
     background: none;
@@ -174,6 +181,15 @@
         padding: 0 1.5em;
         z-index: 1000;
         width: 100%;
+        justify-content: space-between;
+    }
+
+    .mobile-page-title {
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
     }
 
     .name-container > p, .animated-name {

@@ -58,6 +58,17 @@ export default function NavBar() {
     const toggleMenu = () => setIsOpen(!isOpen);
     const closeMenu = () => setIsOpen(false);
 
+    const getPageTitle = () => {
+        switch (location.pathname) {
+            case "/portfolio":
+                return "About";
+            case "/portfolio/projects":
+                return "Projects";
+            default:
+                return "";
+        }
+    };
+
     return (
         <header className="header-bar">
             <div className="header-grid-left">
@@ -73,6 +84,9 @@ export default function NavBar() {
                         ))}
                     </p>
                 </Link>
+            </div>
+            <div className="mobile-page-title">
+                {getPageTitle()}
             </div>
             <div className={`header-grid-middle ${isOpen ? "mobile-open" : ""}`}>
                 <nav aria-label="Main navigation">

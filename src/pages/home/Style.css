@@ -4,6 +4,7 @@
     align-items: center;
     width: 100%;
     padding: 2em;
+    min-height: calc(100vh - 4.5em);
 }
 
 .about-wrapper {
@@ -181,6 +182,10 @@
 @media (max-width: 640px) {
     .home-page {
         padding: 1em;
+    }
+
+    .social-profile-wrapper h1 {
+        display: none;
     }
 
     .interests-education-wrapper {
