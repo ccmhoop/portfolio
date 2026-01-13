@@ -63,7 +63,7 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
 .name-circle p {
@@ -106,7 +106,7 @@
     margin: 0;
     padding: 0.4em;
     gap: 0.5em;
-    background: rgba(0, 0, 0, 0.03);
+    background: var(--border-color);
     border-radius: var(--radius-lg);
 }
 
