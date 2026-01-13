@@ -1,96 +1,125 @@
 .projects-page {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-}
-
-.projects-layout-container{
-    display: flex;
-    width: clamp( 360px, 95vw, 360px*4 );
-    /*max-width: calc(355px * 4) ;*/
-    /*max-width: calc(355px * 4) ;*/
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
-    justify-content: start;
-}
-
-
-
-.project-card{
-    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    width: 340px;
-    background: linear-gradient(160deg,rgba(209, 209, 209, 100) 40%, rgba(250, 250, 250, 1) 60%);
-    backdrop-filter: blur(10px);
-    color: #1a1a1a;
-    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
-
+    padding: 2em;
+    width: 100%;
 }
 
-.project-title-progress-container{
-    display: flex;
-    width: 320px;
-    height: 30px;
-    flex-direction: column;
-    align-items: start;
-    margin: 5px 0 0 0;
-}
-
-.project-quick-detail{
-    display: block;
-    /*margin-left: 2.25rem;*/
-    font-size: 0.7rem;
-    margin-bottom: 0.5rem;
-    color: gray;
-}
-
-.project-progress{
-    position: absolute;
-    right: -10px;
-    color: white;
-    font-weight: bolder;
-    width: 50px;
+.projects-title {
+    font-size: 3em;
+    margin-bottom: 1em;
     text-align: center;
-    border-radius: 5px 0 0 5px;
-    background: #1a1a1a;
-    font-size: 14px;
+    background: linear-gradient(135deg, var(--text-color), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.project-card p{
-    width: 320px;
-    font-size: 0.8rem;
-    margin: 20px 0 10px 0;
+.projects-layout-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5em;
+    max-width: 1200px;
+    width: 100%;
 }
 
-.project-card-image{
+.project-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     overflow: hidden;
-    width: 340px;
-    border-radius: 10px 10px 5px 5px;
-    object-fit: contain;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.project-card-button{
-    background: #1a1a1a;
-    width: 330px;
-    height: 40px;
-    margin-top: auto;
-    margin-bottom: 10px;
-    border-radius: 10px;
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
 }
 
-@media (max-width: 1301px) {
-    .projects-layout-container{
-        margin-left: auto;
-        justify-content: center;
+.project-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #e2e8f0;
+}
+
+@media (prefers-color-scheme: dark) {
+    .project-card-image {
+        background: #1e293b;
     }
-    /*.project-card{*/
-    /*    margin-left: auto;*/
-    /*    margin-right: auto;*/
-    /*}*/
+}
+
+.project-content-wrapper {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-title-progress-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75em;
+}
+
+.project-card h3 {
+    font-size: 1.35em;
+    margin: 0;
+    color: var(--text-color);
+    font-family: var(--font-heading);
+}
+
+.project-progress {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--primary-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.4em 1em;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.project-quick-detail {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1.25em;
+    font-weight: 500;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 2em;
+    flex-grow: 1;
+}
+
+.project-card-button {
+    width: 100%;
+    margin-top: auto;
+    font-weight: 700;
+}
+
+@media (max-width: 640px) {
+    .projects-page {
+        padding: 1em;
+    }
+
+    .project-content-wrapper {
+        padding: 1.5em;
+    }
+}
+
+@media (max-width: 400px) {
+    .projects-layout-container {
+        grid-template-columns: 1fr;
+    }
 }

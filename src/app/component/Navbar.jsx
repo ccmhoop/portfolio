@@ -1,117 +1,104 @@
-import {Link} from "react-router";
-import {GoMoon} from "react-icons/go";
+import {Link, useLocation} from "react-router";
+import {HiMenu, HiX} from "react-icons/hi";
+import {useState, useEffect} from "react";
 
 export default function NavBar() {
+    const location = useLocation();
+    const [isOpen, setIsOpen] = useState(false);
+    const [displayName, setDisplayName] = useState("");
+    const fullName = "Conner de Hoop";
+
+    useEffect(() => {
+        let timeoutId;
+        let isDeleting = false;
+        let currentIndex = 0;
+
+        const animate = () => {
+            if (!isDeleting) {
+                if (currentIndex <= fullName.length) {
+                    setDisplayName(fullName.slice(0, currentIndex));
+                    currentIndex++;
+                    timeoutId = setTimeout(animate, 200);
+                } else {
+                    isDeleting = true;
+                    timeoutId = setTimeout(animate, 2000); // Pause at full name
+                }
+            } else {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    setDisplayName(fullName.slice(0, currentIndex));
+                    timeoutId = setTimeout(animate, 100);
+                } else {
+                    isDeleting = false;
+                    timeoutId = setTimeout(animate, 500); // Pause before restarting
+                }
+            }
+        };
+
+        animate();
+
+        return () => clearTimeout(timeoutId);
+    }, []);
+
+    useEffect(() => {
+        if (isOpen) {
+            document.documentElement.style.overflow = "hidden";
+            document.body.style.overflow = "hidden";
+        } else {
+            document.documentElement.style.overflow = "";
+            document.body.style.overflow = "";
+        }
+
+        return () => {
+            document.documentElement.style.overflow = "";
+            document.body.style.overflow = "";
+        };
+    }, [isOpen]);
+
+    const toggleMenu = () => setIsOpen(!isOpen);
+    const closeMenu = () => setIsOpen(false);
+
     return (
         <header className="header-bar">
             <div className="header-grid-left">
-                <div className="name-container">
+                <Link to="/portfolio" className="name-container" onClick={closeMenu}>
                     <div className="name-circle">
-                        <p>
-                            C
-                        </p>
+                        <p>C</p>
                     </div>
-                    <p>
-                        CONNER
+                    <p className="animated-name">
+                        {displayName.split("").map((char, index) => (
+                            <span key={index} className="fade-in-char">
+                                {char === " " ? "\u00A0" : char}
+                            </span>
+                        ))}
                     </p>
-                </div>
-
+                </Link>
             </div>
-            <div className="header-grid-middle">
-                <nav aria-label="Social links">
-                    <ul className="social-links">
-                        <li className="social-item">
-                            <Link
-                                to="/portfolio"
-                                aria-label="LinkedIn profile"
-                                className="social-link"
-                            >
-                                <p>
-                                    About
-                                </p>
+            <div className={`header-grid-middle ${isOpen ? "mobile-open" : ""}`}>
+                <nav aria-label="Main navigation">
+                    <ul>
+                        <li>
+                            <Link to="/portfolio"
+                                  className={location.pathname === "/portfolio" ? "active" : ""}
+                                  onClick={closeMenu}>
+                                About
                             </Link>
-                            <Link
-                                to="/portfolio/projects"
-                                aria-label="LinkedIn profile"
-                                className="social-link"
-                            >
-                                <p>
-                                    Projects
-                                </p>
-                            </Link>
-                            <Link
-                                to="/portfolio"
-                                aria-label="LinkedIn profile"
-                                className="social-link"
-                            >
-                                <p>
-                                    Contact
-                                </p>
-                            </Link>
-                            <Link
-                                to="/portfolio"
-                                aria-label="LinkedIn profile"
-                                className="social-link"
-                            >
-                                <p>
-                                    Experience
-                                </p>
+                        </li>
+                        <li>
+                            <Link to="/portfolio/projects"
+                                  className={location.pathname === "/portfolio/projects" ? "active" : ""}
+                                  onClick={closeMenu}>
+                                Projects
                             </Link>
                         </li>
                     </ul>
                 </nav>
-                <GoMoon size={25} color={"#000000"}  aria-hidden="true" />
             </div>
-
-            {/*<div className="header-grid-right">*/}
-            {/*    <nav aria-label="Social links">*/}
-            {/*        <ul className="social-links">*/}
-            {/*            <li className="social-item">*/}
-            {/*                <Link*/}
-            {/*                    to="/portfolio"*/}
-            {/*                    aria-label="LinkedIn profile"*/}
-            {/*                    className="social-link"*/}
-            {/*                >*/}
-            {/*                    <ImLinkedin*/}
-            {/*                        size={25}*/}
-            {/*                        color="#000000"*/}
-            {/*                        aria-hidden="true"*/}
-            {/*                        focusable="false"*/}
-            {/*                    />*/}
-            {/*                </Link>*/}
-            {/*                <Link*/}
-            {/*                    to="/portfolio"*/}
-            {/*                    aria-label="LinkedIn profile"*/}
-            {/*                    className="social-link"*/}
-            {/*                >*/}
-            {/*                    <ImLinkedin*/}
-            {/*                        size={25}*/}
-            {/*                        color="#000000"*/}
-            {/*                        aria-hidden="true"*/}
-            {/*                        focusable="false"*/}
-            {/*                    />*/}
-            {/*                </Link>*/}
-            {/*                <Link*/}
-            {/*                    to="/portfolio"*/}
-            {/*                    aria-label="LinkedIn profile"*/}
-            {/*                    className="social-link"*/}
-            {/*                >*/}
-            {/*                    <ImLinkedin*/}
-            {/*                        size={25}*/}
-            {/*                        color="#000000"*/}
-            {/*                        aria-hidden="true"*/}
-            {/*                        focusable="false"*/}
-            {/*                    />*/}
-            {/*                </Link>*/}
-            {/*            </li>*/}
-            {/*        </ul>*/}
-            {/*    </nav>*/}
-            {/*    <a href="https://react.dev" target="_blank">*/}
-            {/*        <img src={reactLogo} className="logo react" alt="React logo"/>*/}
-            {/*    </a>*/}
-            {/*</div>*/}
-
+            <div className="header-grid-right">
+                <button className="burger-menu" onClick={toggleMenu} aria-label="Toggle menu">
+                    {isOpen ? <HiX/> : <HiMenu/>}
+                </button>
+            </div>
         </header>
     )
-
 }
