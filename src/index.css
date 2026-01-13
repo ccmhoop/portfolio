@@ -68,10 +68,6 @@ html, body {
   min-height: 100vh;
   background-color: var(--bg-color);
   color: var(--text-color);
-  background-image: url("./assets/dayBackground.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat, repeat;
   /*scrollbar-gutter: stable ;*/
 }
 
@@ -87,6 +83,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: scroll;
     /*background-image: radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),*/
     /*                  radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.1) 0px, transparent 50%);*/
   }
@@ -97,6 +94,7 @@ body {
   background-size: cover;
   background-position: center ;
   background-repeat: no-repeat;
+  background-attachment: scroll;
   /*background-image: radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),*/
   /*                  radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.1) 0px, transparent 50%);*/
 }
