@@ -95,14 +95,14 @@ export default function NavBar({ theme, toggleTheme }) {
                             <Link to="/portfolio"
                                   className={location.pathname === "/portfolio" ? "active" : ""}
                                   onClick={closeMenu}>
-                                About
+                                <span>About</span>
                             </Link>
                         </li>
                         <li style={{ "--i": 2 }}>
                             <Link to="/portfolio/projects"
                                   className={location.pathname === "/portfolio/projects" ? "active" : ""}
                                   onClick={closeMenu}>
-                                Projects
+                                <span>Projects</span>
                             </Link>
                         </li>
                     </ul>

@@ -83,10 +83,10 @@ body {
 
 @media (prefers-color-scheme: dark) {
   body:not([data-theme='light']) {
-    background-image: url("./assets/dayBackground.jpg");
+    background-image: url("./assets/sunBackground.jpg");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat, repeat;
+    background-repeat: no-repeat;
     /*background-image: radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),*/
     /*                  radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.1) 0px, transparent 50%);*/
   }
@@ -95,8 +95,8 @@ body {
 [data-theme='dark'] body {
   background-image: url("./assets/background.jpg");
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat, repeat;
+  background-position: center ;
+  background-repeat: no-repeat;
   /*background-image: radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),*/
   /*                  radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.1) 0px, transparent 50%);*/
 }
