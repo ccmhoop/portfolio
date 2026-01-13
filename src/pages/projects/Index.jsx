@@ -30,6 +30,7 @@ const ProjectsPage = () => {
             const firstRealItem = container.children[clonesCount];
             if (firstRealItem) {
                 container.scrollLeft = firstRealItem.offsetLeft - (container.clientWidth - firstRealItem.clientWidth) / 2;
+                setActiveIndex(0);
             }
         }
     }, [isMobile]);
@@ -44,7 +45,7 @@ const ProjectsPage = () => {
 
             const { scrollLeft, scrollWidth, clientWidth } = container;
             const itemWidth = container.children[0]?.clientWidth || 0;
-            const gap = 8; // approximate gap based on CSS 0.5em
+            const gap = 12; // approximate gap based on CSS 0.75em
 
             // Boundary detection
             // When we reach the end of the clones at the beginning, or the beginning of clones at the end
@@ -68,35 +69,44 @@ const ProjectsPage = () => {
                     isJumping.current = false;
                 }, 50);
             }
+
+            // Update active index based on scroll position if it's not jumping
+            if (!isJumping.current) {
+                const center = scrollLeft + clientWidth / 2;
+                let closestIndex = 0;
+                let minDistance = Infinity;
+
+                for (let i = 0; i < container.children.length; i++) {
+                    const child = container.children[i];
+                    const childCenter = child.offsetLeft + child.clientWidth / 2;
+                    const distance = Math.abs(center - childCenter);
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        const dataIndex = child.getAttribute('data-index');
+                        if (dataIndex !== null) {
+                            closestIndex = parseInt(dataIndex);
+                        }
+                    }
+                }
+                setActiveIndex(closestIndex);
+            }
         };
 
         container.addEventListener('scroll', handleScroll);
         return () => container.removeEventListener('scroll', handleScroll);
     }, [isMobile, projectCount, clonesCount]);
 
-    useEffect(() => {
-        if (!isMobile || !scrollContainerRef.current) return;
-
-        const observerOptions = {
-            root: scrollContainerRef.current,
-            threshold: 0.6,
-        };
-
-        const observerCallback = (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const index = parseInt(entry.target.getAttribute('data-index'));
-                    setActiveIndex(index);
-                }
+    const handleDotClick = (index) => {
+        if (!scrollContainerRef.current) return;
+        const container = scrollContainerRef.current;
+        const targetItem = container.children[clonesCount + index];
+        if (targetItem) {
+            container.scrollTo({
+                left: targetItem.offsetLeft - (container.clientWidth - targetItem.clientWidth) / 2,
+                behavior: 'smooth'
             });
-        };
-
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-        const children = scrollContainerRef.current.querySelectorAll('.mobile-project-card');
-        children.forEach((child) => observer.observe(child));
-
-        return () => observer.disconnect();
-    }, [isMobile]);
+        }
+    };
 
     const renderMobileCards = () => {
         const items = [];
@@ -156,6 +166,19 @@ const ProjectsPage = () => {
                     )}
                 </div>
             </div>
+
+            {isMobile && (
+                <div className="carousel-dots">
+                    {Array.from({ length: projectCount }).map((_, i) => (
+                        <button
+                            key={i}
+                            className={`carousel-dot ${activeIndex === i ? 'active' : ''}`}
+                            onClick={() => handleDotClick(i)}
+                            aria-label={`Go to project ${i + 1}`}
+                        />
+                    ))}
+                </div>
+            )}
         </section>
     )
 }

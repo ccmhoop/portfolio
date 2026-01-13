@@ -28,6 +28,12 @@
     box-shadow: var(--shadow-md);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-profile-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
 }
 
 .profile-picture-container {
@@ -42,9 +48,13 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    .profile-picture-container {
+    .profile-picture-container:not([data-theme='light'] *) {
         border-color: var(--border-color);
     }
+}
+
+[data-theme='dark'] .profile-picture-container {
+    border-color: var(--border-color);
 }
 
 .profile-picture-container img {
@@ -54,33 +64,45 @@
 }
 
 .social-profile-wrapper h1 {
-    margin: 0.5em 0 0.15em 0;
-    font-size: 1.75em;
+    margin: 0.4em 0 0.1em 0;
+    font-size: 1.85em;
     color: var(--text-color);
     font-family: var(--font-heading);
+    font-weight: 800;
 }
 
 .social-profile-wrapper p {
-    color: var(--text-muted);
-    font-size: 1em;
+    color: var(--primary-color);
+    font-size: 1.1em;
     margin-bottom: 1.5em;
-    font-weight: 500;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
 }
 
 .logo-wrapper {
     display: flex;
     justify-content: center;
-    gap: 1em;
+    gap: 1.25em;
     margin-top: 1em;
     background: rgba(0, 0, 0, 0.03);
-    padding: 0.8em 1.2em;
+    padding: 1em 1.5em;
     border-radius: var(--radius-md);
+    transition: background 0.2s ease;
+}
+
+.logo-wrapper:hover {
+    background: rgba(0, 0, 0, 0.05);
 }
 
 @media (prefers-color-scheme: dark) {
-    .logo-wrapper {
+    .logo-wrapper:not([data-theme='light'] *) {
         background: rgba(255, 255, 255, 0.05);
     }
+}
+
+[data-theme='dark'] .logo-wrapper {
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .logo-container, .logo {
@@ -104,6 +126,11 @@
     display: flex;
     flex-direction: column;
     gap: 2.5em;
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
 }
 
 .card h2 {
@@ -124,6 +151,41 @@
     line-height: 1.8;
     color: var(--text-muted);
     margin: 0;
+}
+
+.button {
+    margin-top: 1em;
+    padding: 0.8em 2em;
+    font-size: 1em;
+    border-radius: var(--radius-md);
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75em;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+.button svg {
+    transition: transform 0.3s ease;
+}
+
+.button:hover svg {
+    transform: translateY(2px);
 }
 
 .interests-education-wrapper {
@@ -154,8 +216,34 @@
     display: flex;
     align-items: center;
     gap: 0.75em;
-    font-size: 0.95em;
-    padding: 0.5em 0;
+    font-size: 1em;
+    padding: 0.6em 1em;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+}
+
+.interests-container li:hover, .education-container li:hover {
+    background: rgba(0, 0, 0, 0.04);
+    transform: translateX(5px);
+    color: var(--text-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    .interests-container li:not([data-theme='light'] *), .education-container li:not([data-theme='light'] *) {
+        background: rgba(255, 255, 255, 0.03);
+    }
+    .interests-container li:hover:not([data-theme='light'] *), .education-container li:hover:not([data-theme='light'] *) {
+        background: rgba(255, 255, 255, 0.06);
+    }
+}
+
+[data-theme='dark'] .interests-container li, [data-theme='dark'] .education-container li {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme='dark'] .interests-container li:hover, [data-theme='dark'] .education-container li:hover {
+    background: rgba(255, 255, 255, 0.06);
 }
 
 .interests-container li::before {
@@ -185,7 +273,8 @@
     }
 
     .social-profile-wrapper h1 {
-        display: none;
+        display: block;
+        font-size: 1.5em;
     }
 
     .interests-education-wrapper {

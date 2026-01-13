@@ -20,9 +20,9 @@ const HomePage = () => {
                     <div className="profile-picture-container">
                         <img src={profilePicture} alt={`${globalOptions.fullName} profile picture`}/>
                     </div>
-                    <h2>
+                    <h1>
                         {globalOptions.fullName}
-                    </h2>
+                    </h1>
 
                     <div className="logo-wrapper">
                         <a href="https://react.dev" target="_blank" rel="noreferrer">

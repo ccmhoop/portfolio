@@ -1,8 +1,8 @@
 import {Link, useLocation} from "react-router";
-import {HiMenu, HiX} from "react-icons/hi";
+import {HiMenu, HiX, HiSun, HiMoon} from "react-icons/hi";
 import {useState, useEffect} from "react";
 
-export default function NavBar() {
+export default function NavBar({ theme, toggleTheme }) {
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const [displayName, setDisplayName] = useState("");
@@ -70,7 +70,7 @@ export default function NavBar() {
     };
 
     return (
-        <header className="header-bar">
+        <header className={`header-bar ${isOpen ? "mobile-menu-open" : ""}`}>
             <div className="header-grid-left">
                 <Link to="/portfolio" className="name-container" onClick={closeMenu}>
                     <div className="name-circle">
@@ -91,14 +91,14 @@ export default function NavBar() {
             <div className={`header-grid-middle ${isOpen ? "mobile-open" : ""}`}>
                 <nav aria-label="Main navigation">
                     <ul>
-                        <li>
+                        <li style={{ "--i": 1 }}>
                             <Link to="/portfolio"
                                   className={location.pathname === "/portfolio" ? "active" : ""}
                                   onClick={closeMenu}>
                                 About
                             </Link>
                         </li>
-                        <li>
+                        <li style={{ "--i": 2 }}>
                             <Link to="/portfolio/projects"
                                   className={location.pathname === "/portfolio/projects" ? "active" : ""}
                                   onClick={closeMenu}>
@@ -107,8 +107,17 @@ export default function NavBar() {
                         </li>
                     </ul>
                 </nav>
+                <div className="mobile-theme-toggle" style={{ "--i": 3 }}>
+                    <p>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</p>
+                    <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+                        {theme === 'dark' ? <HiSun /> : <HiMoon />}
+                    </button>
+                </div>
             </div>
             <div className="header-grid-right">
+                <button className="theme-toggle desktop-only" onClick={toggleTheme} aria-label="Toggle theme">
+                    {theme === 'dark' ? <HiSun /> : <HiMoon />}
+                </button>
                 <button className="burger-menu" onClick={toggleMenu} aria-label="Toggle menu">
                     {isOpen ? <HiX/> : <HiMenu/>}
                 </button>
