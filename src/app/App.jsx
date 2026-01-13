@@ -25,7 +25,7 @@ function App() {
             
             // If currently system, we need to know what system is to toggle to the opposite
             const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            return isSystemDark ? 'light' : 'dark';
+            return isSystemDark ? 'dark' : 'light';
         });
     };
 

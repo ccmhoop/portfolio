@@ -200,8 +200,16 @@ const ProjectsPage = () => {
 
     return (
         <section className="projects-page">
-            <h1 className="projects-title">Projects</h1>
-            
+            {isMobile && (
+                <div className="mobile-projects-filler">
+                    <div className="filler-line"></div>
+                    <span className="filler-text">
+                        {PROJECTS_DATA[activeIndex]?.title || "SELECTED WORKS"}
+                    </span>
+                    <div className="filler-line"></div>
+                </div>
+            )}
+
             <div className="projects-carousel-wrapper">
                 <div className="projects-layout-container" ref={scrollContainerRef}>
                     {!isMobile ? (
