@@ -1,6 +1,6 @@
 import {useEffect, useRef, useState} from "react";
 import "./Style.css"
-import picTest from "/public/profilePicTest.jpg";
+import picTest from "/profilePicTest.jpg";
 import ProjectCard from "./component/ProjectCard.jsx";
 import MobileProjectCard from "./component/MobileProjectCard.jsx";
 

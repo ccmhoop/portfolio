@@ -273,6 +273,8 @@
         padding: 1em;
         padding-top: 2em;
         align-items: flex-start;
+        min-height: calc(100vh - 4.5em);
+        min-height: calc(100dvh - 4.5em);
     }
 
     .social-profile-wrapper {

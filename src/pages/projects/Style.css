@@ -263,19 +263,21 @@
     .projects-page {
         padding: 0;
         height: calc(100vh - 4.5em);
-        height: calc(100svh - 4.5em);
+        height: calc(100dvh - 4.5em);
         justify-content: center;
         min-height: unset;
         position: relative;
         box-sizing: border-box;
+        overflow: hidden;
     }
 
     .projects-carousel-wrapper {
-        height: 100%;
+        flex: 1;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
+        min-height: 0;
     }
 
     .projects-layout-container {
@@ -430,9 +432,10 @@
         display: flex;
         justify-content: center;
         gap: 0.5rem;
-        margin-top: 1.5rem;
-        padding-bottom: 1.5rem;
+        margin-top: 1rem;
+        padding-bottom: 1rem;
         z-index: 5;
+        flex-shrink: 0;
     }
 
     .carousel-dot {
