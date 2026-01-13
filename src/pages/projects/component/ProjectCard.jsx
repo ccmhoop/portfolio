@@ -1,20 +1,41 @@
 import testPic from "/public/profilePicTest.jpg"
+import { HiArrowUpRight } from "react-icons/hi2";
 
-export default function ProjectCard() {
+export default function ProjectCard({ 
+    title = "Project Title", 
+    description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cupiditate ducimus eveniet laudantium.",
+    tags = ["react", "java", "spring"],
+    progress = "100%",
+    image = testPic,
+    link = "#"
+}) {
 
     return (
         <div className="project-card">
-            <img className="project-card-image" src={testPic} alt="Project thumbnail"/>
-            <div className="project-content-wrapper">
-                <div className="project-title-progress-container">
-                    <h3>Project Title</h3>
-                    <span className="project-progress">100%</span>
+            <div className="project-card-image-container">
+                <img className="project-card-image" src={image} alt={title}/>
+                <div className="project-card-overlay">
+                    <a href={link} className="project-card-view-link">
+                        View Project <HiArrowUpRight />
+                    </a>
                 </div>
-                <span className="project-quick-detail">react, java, spring</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cupiditate ducimus eveniet laudantium.</p>
-                <button className="project-card-button">
-                    Go to Project
-                </button>
+            </div>
+            <div className="project-content-wrapper">
+                <div className="project-header">
+                    <div className="project-title-progress-container">
+                        <h3>{title}</h3>
+                        <span className="project-progress">{progress}</span>
+                    </div>
+                    <div className="project-tags">
+                        {tags.map((tag, index) => (
+                            <span key={index} className="project-tag">{tag}</span>
+                        ))}
+                    </div>
+                </div>
+                <p>{description}</p>
+                {/*<a href={link} className="project-card-button">*/}
+                {/*    Explore Details*/}
+                {/*</a>*/}
             </div>
         </div>
     )

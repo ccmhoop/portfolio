@@ -1,7 +1,59 @@
 import {useEffect, useRef, useState} from "react";
 import "./Style.css"
+import picTest from "/public/profilePicTest.jpg";
 import ProjectCard from "./component/ProjectCard.jsx";
 import MobileProjectCard from "./component/MobileProjectCard.jsx";
+
+const PROJECTS_DATA = [
+    {
+        title: "E-Commerce Platform",
+        description: "A full-featured online store with cart functionality, secure checkout, and real-time inventory management. Built with performance and scalability in mind.",
+        tags: ["React", "Node.js", "MongoDB", "Stripe"],
+        progress: "Completed",
+        image: picTest, // Placeholder
+        link: "#" // Placeholder
+    },
+    {
+        title: "Portfolio Website",
+        description: "A modern, responsive portfolio designed to showcase creative work. Features glassmorphism, smooth animations, and optimized for all screen sizes.",
+        tags: ["React", "Vite", "CSS3", "Framer Motion"],
+        progress: "95%",
+        image: picTest,
+        link: "#"
+    },
+    {
+        title: "Task Management App",
+        description: "Collaborative tool for teams to organize projects and track progress. Includes drag-and-drop boards, task assignments, and deadline notifications.",
+        tags: ["Java", "Spring Boot", "PostgreSQL", "React"],
+        progress: "Completed",
+        image: picTest,
+        link: "#"
+    },
+    {
+        title: "AI Chat Assistant",
+        description: "Intelligent chatbot powered by large language models to provide instant support and information. Integrates with various APIs for enhanced functionality.",
+        tags: ["Python", "OpenAI API", "React", "WebSocket"],
+        progress: "80%",
+        image: picTest,
+        link: "#"
+    },
+    {
+        title: "Weather Dashboard",
+        description: "Interactive dashboard providing real-time weather data and forecasts for locations worldwide. Uses advanced visualization for climate trends.",
+        tags: ["JavaScript", "OpenWeatherMap API", "Chart.js"],
+        progress: "Completed",
+        image: picTest,
+        link: "#"
+    },
+    {
+        title: "Fitness Tracker",
+        description: "Mobile-first application to monitor health metrics, track workouts, and set personalized fitness goals. Includes data visualization and social features.",
+        tags: ["React Native", "Firebase", "Redux"],
+        progress: "In Progress",
+        image: picTest,
+        link: "#"
+    }
+];
 
 const ProjectsPage = () => {
     const scrollContainerRef = useRef(null);
@@ -9,7 +61,7 @@ const ProjectsPage = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const isJumping = useRef(false);
 
-    const projectCount = 9;
+    const projectCount = PROJECTS_DATA.length;
     const clonesCount = 3; // Number of clones on each side
 
     useEffect(() => {
@@ -117,6 +169,7 @@ const ProjectsPage = () => {
                     key={`clone-start-${i}`} 
                     data-index={i} 
                     isActive={activeIndex === i}
+                    {...PROJECTS_DATA[i]}
                 />
             );
         }
@@ -127,6 +180,7 @@ const ProjectsPage = () => {
                     key={i} 
                     data-index={i} 
                     isActive={activeIndex === i}
+                    {...PROJECTS_DATA[i]}
                 />
             );
         }
@@ -137,6 +191,7 @@ const ProjectsPage = () => {
                     key={`clone-end-${i}`} 
                     data-index={i} 
                     isActive={activeIndex === i}
+                    {...PROJECTS_DATA[i]}
                 />
             );
         }
@@ -150,17 +205,9 @@ const ProjectsPage = () => {
             <div className="projects-carousel-wrapper">
                 <div className="projects-layout-container" ref={scrollContainerRef}>
                     {!isMobile ? (
-                        <>
-                            <ProjectCard />
-                            <ProjectCard />
-                            <ProjectCard />
-                            <ProjectCard />
-                            <ProjectCard />
-                            <ProjectCard />
-                            <ProjectCard />
-                            <ProjectCard />
-                            <ProjectCard />
-                        </>
+                        PROJECTS_DATA.map((project, index) => (
+                            <ProjectCard key={index} {...project} />
+                        ))
                     ) : (
                         renderMobileCards()
                     )}
