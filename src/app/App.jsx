@@ -10,11 +10,7 @@ function App() {
 
     useEffect(() => {
         const root = document.documentElement;
-        if (theme === 'system') {
-            root.removeAttribute('data-theme');
-        } else {
-            root.setAttribute('data-theme', theme);
-        }
+        root.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
     }, [theme]);
 

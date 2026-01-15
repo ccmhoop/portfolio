@@ -47,10 +47,6 @@
     transition: transform 0.2s ease;
 }
 
-.name-container:hover {
-    transform: scale(1.02);
-}
-
 .name-circle {
     background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
     border-radius: 50%;
