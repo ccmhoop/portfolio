@@ -1,6 +1,7 @@
 import {Link, useLocation} from "react-router";
 import {HiMenu, HiX, HiSun, HiMoon} from "react-icons/hi";
 import {useState, useEffect} from "react";
+import MobileMenu from "./MobileMenu";
 
 export default function NavBar({ theme, toggleTheme }) {
     const location = useLocation();
@@ -88,32 +89,13 @@ export default function NavBar({ theme, toggleTheme }) {
             <div className="mobile-page-title">
                 {getPageTitle()}
             </div>
-            <div className={`header-grid-middle ${isOpen ? "mobile-open" : ""}`}>
-                <nav aria-label="Main navigation">
-                    <ul>
-                        <li style={{ "--i": 1 }}>
-                            <Link to="/portfolio/"
-                                  className={location.pathname === "/portfolio/" ? "active" : ""}
-                                  onClick={closeMenu}>
-                                <span>About</span>
-                            </Link>
-                        </li>
-                        <li style={{ "--i": 2 }}>
-                            <Link to="/portfolio/projects"
-                                  className={location.pathname === "/portfolio/projects" ? "active" : ""}
-                                  onClick={closeMenu}>
-                                <span>Projects</span>
-                            </Link>
-                        </li>
-                    </ul>
-                </nav>
-                <div className="mobile-theme-toggle" style={{ "--i": 3 }}>
-                    <p>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</p>
-                    <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
-                        {theme === 'dark' ? <HiSun /> : <HiMoon />}
-                    </button>
-                </div>
-            </div>
+            <MobileMenu
+                isOpen={isOpen}
+                closeMenu={closeMenu}
+                location={location}
+                theme={theme}
+                toggleTheme={toggleTheme}
+            />
             <div className="header-grid-right">
                 <button className="theme-toggle desktop-only" onClick={toggleTheme} aria-label="Toggle theme">
                     {theme === 'dark' ? <HiSun /> : <HiMoon />}
