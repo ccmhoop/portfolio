@@ -6,14 +6,14 @@ export default function MobileMenu({ isOpen, closeMenu, location, theme, toggleT
         <div className={`header-grid-middle ${isOpen ? "mobile-open" : ""}`}>
             <nav aria-label="Main navigation">
                 <ul>
-                    <li style={{ "--i": 1 }}>
+                    <li >
                         <Link to="/portfolio/"
                               className={location.pathname === "/portfolio/" ? "active" : ""}
                               onClick={closeMenu}>
                             <span>About</span>
                         </Link>
                     </li>
-                    <li style={{ "--i": 2 }}>
+                    <li>
                         <Link to="/portfolio/projects"
                               className={location.pathname === "/portfolio/projects" ? "active" : ""}
                               onClick={closeMenu}>
@@ -22,9 +22,9 @@ export default function MobileMenu({ isOpen, closeMenu, location, theme, toggleT
                     </li>
                 </ul>
             </nav>
-            <div className="mobile-theme-toggle" style={{ "--i": 3 }}>
+            <div className="mobile-theme-toggle" onClick={toggleTheme} >
                 <p>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</p>
-                <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+                <button className="theme-toggle" aria-label="Toggle theme">
                     {theme === 'dark' ? <HiSun /> : <HiMoon />}
                 </button>
             </div>
