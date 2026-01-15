@@ -87,7 +87,7 @@ export default function NavBar({ theme, toggleTheme }) {
                 </Link>
             </div>
             <div className="mobile-page-title">
-                {getPageTitle()}
+                   {getPageTitle()}
             </div>
             <MobileMenu
                 isOpen={isOpen}
