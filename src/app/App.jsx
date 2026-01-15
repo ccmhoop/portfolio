@@ -5,7 +5,7 @@ import NavBar from "./component/Navbar.jsx";
 
 function App() {
     const [theme, setTheme] = useState(() => {
-        return localStorage.getItem('theme') || 'system';
+        return localStorage.getItem('theme') || 'light';
     });
 
     useEffect(() => {
@@ -32,7 +32,6 @@ function App() {
     return (
         <div className="layout">
             <NavBar theme={theme} toggleTheme={toggleTheme} />
-
             <main className="content">
                 <Outlet/>
             </main>
