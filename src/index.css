@@ -76,7 +76,7 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-  body:not([data-theme='light']) {
+  body:not([data-theme='dark']) {
     background-image: url("./assets/sunBackground.jpg");
     background-size: cover;
     background-position: center;
