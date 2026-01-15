@@ -1,12 +1,17 @@
 import {useState, useEffect} from 'react'
 import './App.css'
-import {Outlet} from "react-router";
+import {Outlet, useNavigate} from "react-router";
 import NavBar from "./component/Navbar.jsx";
 
 function App() {
+    const navigate = useNavigate();
     const [theme, setTheme] = useState(() => {
         return localStorage.getItem('theme') || 'light';
     });
+
+    useEffect(() => {
+        navigate('/portfolio/');
+    }, []);
 
     useEffect(() => {
         const root = document.documentElement;

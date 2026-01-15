@@ -8,7 +8,7 @@ export default function MobileMenu({ isOpen, closeMenu, location, theme, toggleT
                 <ul>
                     <li >
                         <Link to="/portfolio/"
-                              className={location.pathname === "/portfolio/" ? "active" : ""}
+                              className={(location.pathname === "/portfolio/" || location.pathname === "/portfolio/") ? "active" : ""}
                               onClick={closeMenu}>
                             <span>About</span>
                         </Link>
