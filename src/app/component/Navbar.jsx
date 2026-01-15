@@ -60,7 +60,7 @@ export default function NavBar({ theme, toggleTheme }) {
 
     const getPageTitle = () => {
         switch (location.pathname) {
-            case "/portfolio":
+            case "/portfolio/":
                 return "About";
             case "/portfolio/projects":
                 return "Projects";
@@ -92,8 +92,8 @@ export default function NavBar({ theme, toggleTheme }) {
                 <nav aria-label="Main navigation">
                     <ul>
                         <li style={{ "--i": 1 }}>
-                            <Link to="/portfolio"
-                                  className={location.pathname === "/portfolio" ? "active" : ""}
+                            <Link to="/portfolio/"
+                                  className={location.pathname === "/portfolio/" ? "active" : ""}
                                   onClick={closeMenu}>
                                 <span>About</span>
                             </Link>
