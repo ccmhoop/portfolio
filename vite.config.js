@@ -4,14 +4,18 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/portfolio/',
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
       workbox: {
-        navigateFallback: '/portfolio/'
-      }
-    })
+        navigateFallback: '/portfolio/index.html',
+        navigateFallbackDenylist: [
+          /^\/portfolio\/api\//,
+          /^\/portfolio\/assets\//
+        ],
+      },
+    }),
   ],
-  base: "/portfolio/",
-})
+});
