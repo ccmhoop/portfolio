@@ -1,11 +1,11 @@
 import {useEffect} from "react";
 import reactLogo from "/react.svg";
-import profilePicture from "/profilePicTest.jpg"
+import profilePicture from "/photoConner.jpg";
 import javaLogo from "/javaLogo.png";
 import springLogo from "/springLogo.png";
 import {globalOptions, homeOptions} from "../../options/options.js";
-import {mapInterestsToLi, mapEducationToLi} from "./component/MapToElement.jsx"
-import "./Style.css"
+import {mapInterestsToLi, mapEducationToLi} from "./component/MapToElement.jsx";
+import "./Style.css";
 
 const HomePage = () => {
 

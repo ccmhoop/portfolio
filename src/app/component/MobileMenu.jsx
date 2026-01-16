@@ -3,7 +3,7 @@ import { HiSun, HiMoon } from "react-icons/hi";
 
 export default function MobileMenu({ isOpen, closeMenu, location, theme, toggleTheme }) {
     return (
-        <div className={`header-grid-middle ${isOpen ? "mobile-open" : ""}`}>
+        <aside className={`mobile-menu ${isOpen ? "mobile-open" : ""}`}>
             <nav aria-label="Main navigation">
                 <ul>
                     <li >
@@ -28,6 +28,6 @@ export default function MobileMenu({ isOpen, closeMenu, location, theme, toggleT
                     {theme === 'dark' ? <HiSun /> : <HiMoon />}
                 </button>
             </div>
-        </div>
+        </aside>
     );
 }

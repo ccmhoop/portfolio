@@ -71,24 +71,54 @@ export default function NavBar({ theme, toggleTheme }) {
     };
 
     return (
-        <header className={`header-bar ${isOpen ? "mobile-menu-open" : ""}`}>
-            <div className="header-grid-left">
-                <Link to="/portfolio" className="name-container" onClick={closeMenu}>
-                    <div className="name-circle">
-                        <p>C</p>
-                    </div>
-                    <p className="animated-name">
-                        {displayName.split("").map((char, index) => (
-                            <span key={index} className="fade-in-char">
-                                {char === " " ? "\u00A0" : char}
-                            </span>
-                        ))}
-                    </p>
-                </Link>
-            </div>
-            <div className="mobile-page-title">
-                   {getPageTitle()}
-            </div>
+        <div>
+            <header className={`header-bar ${isOpen ? "mobile-menu-open" : ""}`}>
+                <div className="header-grid-left">
+                    <Link to="/portfolio/" className="name-container" onClick={closeMenu}>
+                        <div className="name-circle">
+                            <p>C</p>
+                        </div>
+                        <p className="animated-name">
+                            {displayName.split("").map((char, index) => (
+                                <span key={index} className="fade-in-char">
+                                    {char === " " ? "\u00A0" : char}
+                                </span>
+                            ))}
+                        </p>
+                    </Link>
+                </div>
+                <div className="header-grid-middle desktop-only">
+                    <nav aria-label="Main navigation">
+                        <ul>
+                            <li >
+                                <Link to="/portfolio/"
+                                      className={(location.pathname === "/portfolio/" || location.pathname === "/portfolio/") ? "active" : ""}
+                                      onClick={closeMenu}>
+                                    <span>About</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/portfolio/projects"
+                                      className={location.pathname === "/portfolio/projects" ? "active" : ""}
+                                      onClick={closeMenu}>
+                                    <span>Projects</span>
+                                </Link>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div className="mobile-page-title">
+                       {getPageTitle()}
+                </div>
+                <div className="header-grid-right">
+                    <button className="theme-toggle desktop-only" onClick={toggleTheme} aria-label="Toggle theme">
+                        {theme === 'dark' ? <HiSun /> : <HiMoon />}
+                    </button>
+                    <button className="burger-menu" onClick={toggleMenu} aria-label="Toggle menu">
+                        {isOpen ? <HiX/> : <HiMenu/>}
+                    </button>
+                </div>
+            </header>
             <MobileMenu
                 isOpen={isOpen}
                 closeMenu={closeMenu}
@@ -96,14 +126,6 @@ export default function NavBar({ theme, toggleTheme }) {
                 theme={theme}
                 toggleTheme={toggleTheme}
             />
-            <div className="header-grid-right">
-                <button className="theme-toggle desktop-only" onClick={toggleTheme} aria-label="Toggle theme">
-                    {theme === 'dark' ? <HiSun /> : <HiMoon />}
-                </button>
-                <button className="burger-menu" onClick={toggleMenu} aria-label="Toggle menu">
-                    {isOpen ? <HiX/> : <HiMenu/>}
-                </button>
-            </div>
-        </header>
+        </div>
     )
 }

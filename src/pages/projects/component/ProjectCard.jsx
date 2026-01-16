@@ -1,4 +1,4 @@
-import testPic from "/public/profilePicTest.jpg"
+import picTest from "/projectTest.png";
 import { HiArrowUpRight } from "react-icons/hi2";
 
 export default function ProjectCard({ 
@@ -6,7 +6,7 @@ export default function ProjectCard({
     description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cupiditate ducimus eveniet laudantium.",
     tags = ["react", "java", "spring"],
     progress = "100%",
-    image = testPic,
+    image = picTest,
     link = "#"
 }) {
 
