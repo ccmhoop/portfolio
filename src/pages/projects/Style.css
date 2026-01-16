@@ -2,9 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2em;
+    padding: 0 2em 2em 2em; /* Top padding is handled by margin on container/title usually, but we want it centered */
     width: 100%;
     min-height: calc(100vh - 4.5em);
+    box-sizing: border-box;
+    justify-content: center; /* Center vertically */
 }
 
 .projects-title {
@@ -14,14 +16,17 @@
     background: linear-gradient(135deg, var(--text-color), var(--primary-hover));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: block; /* Ensure it is visible by default */
 }
 
 .projects-layout-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center;
     gap: 2.5em;
     max-width: 1200px;
     width: 100%;
+    margin: 0 auto;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
@@ -335,6 +340,7 @@
         height: 100%;
         max-height: 100%;
         align-items: center;
+        justify-content: flex-start; /* Ensure items start from the beginning of scroll */
         scroll-behavior: auto; /* Required for silent jumps */
     }
 
@@ -343,7 +349,7 @@
     }
 
     .projects-title {
-        display: none;
+        display: none; /* Keep hidden on mobile as per design */
     }
 
     .project-card {
