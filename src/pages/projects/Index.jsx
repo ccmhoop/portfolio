@@ -22,7 +22,7 @@ const ProjectsContent = () => {
     return (
         <section className="projects-page">
             {isMobile && (
-                <div className="mobile-projects-filler">
+                <div className="mobile-projects-filler" aria-hidden="true">
                     <div className="filler-line"></div>
                     <span className="filler-text">
                         {projectCardData[activeIndex]?.title || "SELECTED WORKS"}
@@ -44,16 +44,17 @@ const ProjectsContent = () => {
             </div>
 
             {isMobile && (
-                <div className="carousel-dots">
+                <nav className="carousel-dots" aria-label="Projects pagination">
                     {Array.from({ length: projectCount }).map((_, i) => (
                         <button
                             key={i}
                             className={`carousel-dot ${activeIndex === i ? 'active' : ''}`}
                             onClick={() => handleDotClick(i)}
                             aria-label={`Go to project ${i + 1}`}
+                            aria-current={activeIndex === i ? 'true' : 'false'}
                         />
                     ))}
-                </div>
+                </nav>
             )}
         </section>
     )

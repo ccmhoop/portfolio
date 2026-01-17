@@ -3,7 +3,7 @@ import {HiMenu, HiX, HiSun, HiMoon} from "react-icons/hi";
 import {useState, useEffect} from "react";
 import MobileMenu from "./MobileMenu";
 import { useAppContext } from "../context/AppContext";
-import { globalOptions } from "../../data/pageData.js";
+import { globalOptions } from "@/data/pageData.js";
 
 export default function NavBar() {
     const { theme, toggleTheme } = useAppContext();
@@ -74,59 +74,59 @@ export default function NavBar() {
     };
 
     return (
-        <div>
-            <header className={`header-bar ${isOpen ? "mobile-menu-open" : ""}`}>
-                <div className="header-grid-left">
-                    <Link to="/portfolio/" className="name-container" onClick={closeMenu}>
-                        <div className="name-circle">
-                            <p>C</p>
-                        </div>
-                        <p className="animated-name">
-                            {displayName.split("").map((char, index) => (
-                                <span key={index} className="fade-in-char">
-                                    {char === " " ? "\u00A0" : char}
-                                </span>
-                            ))}
-                        </p>
-                    </Link>
-                </div>
-                <div className="header-grid-middle desktop-only">
-                    <nav aria-label="Main navigation">
-                        <ul>
-                            <li >
-                                <Link to="/portfolio/"
-                                      className={(location.pathname === "/portfolio/" || location.pathname === "/portfolio/") ? "active" : ""}
-                                      onClick={closeMenu}>
-                                    <span>About</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/portfolio/projects"
-                                      className={location.pathname === "/portfolio/projects" ? "active" : ""}
-                                      onClick={closeMenu}>
-                                    <span>Projects</span>
-                                </Link>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div className="mobile-page-title">
-                       {getPageTitle()}
-                </div>
-                <div className="header-grid-right">
-                    <button className="theme-toggle desktop-only" onClick={toggleTheme} aria-label="Toggle theme">
-                        {theme === 'dark' ? <HiSun /> : <HiMoon />}
-                    </button>
-                    <button className="burger-menu" onClick={toggleMenu} aria-label="Toggle menu">
-                        {isOpen ? <HiX/> : <HiMenu/>}
-                    </button>
-                </div>
-            </header>
+        <header className={`header-bar ${isOpen ? "mobile-menu-open" : ""}`}>
+            <div className="header-grid-left">
+                <Link to="/portfolio/" className="name-container" onClick={closeMenu} aria-label="Home">
+                    <div className="name-circle" aria-hidden="true">
+                        <p>C</p>
+                    </div>
+                    <p className="animated-name">
+                        {displayName.split("").map((char, index) => (
+                            <span key={index} className="fade-in-char">
+                                {char === " " ? "\u00A0" : char}
+                            </span>
+                        ))}
+                    </p>
+                </Link>
+            </div>
+            <div className="header-grid-middle desktop-only">
+                <nav aria-label="Main navigation">
+                    <ul>
+                        <li>
+                            <Link to="/portfolio/"
+                                  className={(location.pathname === "/portfolio/" || location.pathname === "/portfolio/") ? "active" : ""}
+                                  onClick={closeMenu}
+                                  aria-current={location.pathname === "/portfolio/" ? "page" : undefined}>
+                                <span>About</span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/portfolio/projects"
+                                  className={location.pathname === "/portfolio/projects" ? "active" : ""}
+                                  onClick={closeMenu}
+                                  aria-current={location.pathname === "/portfolio/projects" ? "page" : undefined}>
+                                <span>Projects</span>
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div className="mobile-page-title" aria-live="polite">
+                   {getPageTitle()}
+            </div>
+            <div className="header-grid-right">
+                <button className="theme-toggle desktop-only" onClick={toggleTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}>
+                    {theme === 'dark' ? <HiSun aria-hidden="true" /> : <HiMoon aria-hidden="true" />}
+                </button>
+                <button className="burger-menu" onClick={toggleMenu} aria-label={isOpen ? "Close menu" : "Open menu"} aria-expanded={isOpen}>
+                    {isOpen ? <HiX aria-hidden="true" /> : <HiMenu aria-hidden="true" />}
+                </button>
+            </div>
             <MobileMenu
                 isOpen={isOpen}
                 closeMenu={closeMenu}
                 location={location}
             />
-        </div>
+        </header>
     )
 }

@@ -14,16 +14,16 @@ const HomePage = () => {
     return (
         <section className="home-page">
             <div className="about-wrapper">
-                <div className="social-profile-wrapper">
+                <aside className="social-profile-wrapper">
                     <div className="profile-picture-container">
-                        <img src={`${homeData.profilePicture}`} alt={`${globalOptions.fullName} profile picture`}/>
+                        <img src={`${homeData.profilePicture}`} alt={`${globalOptions.fullName} profile picture`} />
                     </div>
                     <h1>
                         {globalOptions.fullName}
                     </h1>
 
                     <div className="logo-wrapper">
-                        <a href="https://react.dev" target="_blank" rel="noreferrer">
+                        <a href="https://react.dev" target="_blank" rel="noopener noreferrer" aria-label="React Official Website">
                             <img src={`${homeData.icons.reactIcon}`} className="logo" alt="React logo"/>
                         </a>
                         <div className="logo-container">
@@ -36,8 +36,8 @@ const HomePage = () => {
                     <p>
                         {globalOptions.profession}
                     </p>
-                </div>
-                <div className="card">
+                </aside>
+                <article className="card">
                     <div className="about-me-content">
                         <h2>
                             {homeData.aboutMeTitle}
@@ -45,9 +45,9 @@ const HomePage = () => {
                         <p>
                             {homeData.aboutMeDescription}
                         </p>
-                        <a href={`${homeData.cvFile}`} download="CVConnerDeHoop.pdf" className="button">
+                        <a href={`${homeData.cvFile}`} download="CVConnerDeHoop.pdf" className="button" aria-label="Download CV as PDF">
                             <span>Download CV</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transition: 'transform 0.3s ease' }}>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transition: 'transform 0.3s ease' }} aria-hidden="true">
                                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                                 <polyline points="7 10 12 15 17 10"/>
                                 <line x1="12" y1="15" x2="12" y2="3"/>
@@ -55,27 +55,26 @@ const HomePage = () => {
                         </a>
                     </div>
                     <div className="interests-education-wrapper">
-                        <div className="interests-container">
+                        <section className="interests-container">
                             <h3>
                                 {homeData.interestsTitle}
                             </h3>
                             <ul>
                                 {mapInterestsToLi()}
                             </ul>
-                        </div>
-                        <div className="education-container">
+                        </section>
+                        <section className="education-container">
                             <h3>
                                 {homeData.educationTitle}
                             </h3>
                             <ul>
                                 {mapEducationToLi()}
                             </ul>
-                        </div>
+                        </section>
                     </div>
-                </div>
+                </article>
             </div>
         </section>
-
     )
 }
 

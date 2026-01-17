@@ -12,25 +12,25 @@ export default function MobileProjectCard({
     ...props 
 }) {
     return (
-        <div 
+        <article 
             className={`mobile-project-card ${isActive ? 'active' : ''}`} 
             {...props}
         >
             <div className="mobile-project-image-container">
-                <img className="mobile-project-card-image" src={image} alt={title}/>
-                <span className="mobile-project-progress-badge">{progress}</span>
+                <img className="mobile-project-card-image" src={image} alt={`Screenshot of ${title}`}/>
+                <span className="mobile-project-progress-badge" aria-label="Project completion progress">{progress}</span>
             </div>
             <div className="mobile-project-content-wrapper">
-                <div className="mobile-project-tags">
+                <div className="mobile-project-tags" aria-label="Technologies used">
                     {tags.slice(0, 4).map((tag, index) => (
                         <span key={index} className="mobile-project-tag">{tag}</span>
                     ))}
                 </div>
                 <p className="mobile-project-description">{description}</p>
-                <a href={link} className="project-card-button mobile-button">
-                    View Project <HiArrowUpRight />
+                <a href={link} className="project-card-button mobile-button" target="_blank" rel="noopener noreferrer">
+                    View Project <HiArrowUpRight aria-hidden="true" />
                 </a>
             </div>
-        </div>
+        </article>
     )
 }
