@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useRef, useEffect } from 'react';
-import { useAppContext } from '../../../app/context/AppContext.jsx';
+import { useAppContext } from '@/app/context/AppContext.jsx';
 
 const CarouselContext = createContext();
 

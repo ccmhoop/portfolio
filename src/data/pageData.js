@@ -8,6 +8,7 @@ const globalOptions = {
 const homeOptions = {
     title: 'Home',
     aboutMeTitle: 'About Me',
+    profilePicture: 'src/assets/images/photoConner.jpg',
     aboutMeDescription:
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cupiditate dicta dolorum\n' +
         'enim error inventore, ipsam nisi odio sed ut? Esse et ex illum iste labore magnam quis sequi soluta?\n' +
@@ -20,7 +21,12 @@ const homeOptions = {
     educationObjectArray: [
         {course:'Java Software Developer', school:'ITvitae Amersfoort'},
         {course:'Financial Administration', school:'Cebos Amersfoort'}
-    ]
+    ],
+    icons: {
+        reactIcon: 'src/assets/images/react.svg',
+        javaIcon: 'src/assets/images/javaLogo.png',
+        springIcon: 'src/assets/images/springLogo.png',
+    }
 }
 
 const projectCardData = [

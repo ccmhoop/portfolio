@@ -3,7 +3,7 @@ import {HiMenu, HiX, HiSun, HiMoon} from "react-icons/hi";
 import {useState, useEffect} from "react";
 import MobileMenu from "./MobileMenu";
 import { useAppContext } from "../context/AppContext";
-import { globalOptions } from "../../options/options";
+import { globalOptions } from "../../data/pageData.js";
 
 export default function NavBar() {
     const { theme, toggleTheme } = useAppContext();

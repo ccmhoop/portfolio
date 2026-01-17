@@ -1,14 +1,11 @@
 import {useEffect} from "react";
-import reactLogo from "/react.svg";
-import profilePicture from "/photoConner.jpg";
-import javaLogo from "/javaLogo.png";
-import springLogo from "/springLogo.png";
-import cvFile from "../../assets/docs/CVConnerDeHoop.pdf";
-import {globalOptions, homeOptions} from "../../options/options.js";
+import cvFile from "@/assets/docs/CVConnerDeHoop.pdf";
+import {globalOptions, homeOptions} from "@/data/pageData.js";
 import {mapInterestsToLi, mapEducationToLi} from "./component/MapToElement.jsx";
 import "./Style.css";
 
 const HomePage = () => {
+
 
     useEffect(() => {
         document.title = globalOptions.name;
@@ -19,7 +16,7 @@ const HomePage = () => {
             <div className="about-wrapper">
                 <div className="social-profile-wrapper">
                     <div className="profile-picture-container">
-                        <img src={profilePicture} alt={`${globalOptions.fullName} profile picture`}/>
+                        <img src={homeOptions.profilePicture} alt={`${globalOptions.fullName} profile picture`}/>
                     </div>
                     <h1>
                         {globalOptions.fullName}
@@ -27,13 +24,13 @@ const HomePage = () => {
 
                     <div className="logo-wrapper">
                         <a href="https://react.dev" target="_blank" rel="noreferrer">
-                            <img src={reactLogo} className="logo" alt="React logo"/>
+                            <img src={homeOptions.icons.reactIcon} className="logo" alt="React logo"/>
                         </a>
                         <div className="logo-container">
-                            <img src={javaLogo} className="logo" alt="Java logo"/>
+                            <img src={homeOptions.icons.javaIcon} className="logo" alt="Java logo"/>
                         </div>
                         <div className="logo-container">
-                            <img src={springLogo} className="logo" alt="Spring logo"/>
+                            <img src={homeOptions.icons.springIcon} className="logo" alt="Spring logo"/>
                         </div>
                     </div>
                     <p>

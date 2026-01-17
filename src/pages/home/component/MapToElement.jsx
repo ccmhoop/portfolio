@@ -1,4 +1,4 @@
-import {homeOptions} from '../../../options/options.js'
+import {homeOptions} from '@/data/pageData.js'
 import {TbSchool} from "react-icons/tb";
 
 const mapInterestsToLi = () => {

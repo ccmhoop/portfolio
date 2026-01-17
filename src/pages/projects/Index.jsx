@@ -1,8 +1,8 @@
 import {useEffect} from "react";
 import "./Style.css"
-import {projectCardData} from "../../options/options.js";
+import {projectCardData} from "@/data/pageData.js";
 import ProjectCard from "./component/ProjectCard.jsx";
-import {useAppContext} from "../../app/context/AppContext.jsx";
+import {useAppContext} from "@/app/context/AppContext.jsx";
 import {CarouselProvider, useCarouselContext} from "./context/CarouselContext.jsx";
 import MobileProjectsCarousel from "./component/MobileProjectsCarousel.jsx";
 

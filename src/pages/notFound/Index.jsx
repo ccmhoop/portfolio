@@ -1,6 +1,5 @@
 import {Link} from "react-router";
 import {useEffect} from "react";
-import NavBar from "../../app/component/Navbar.jsx";
 import "./Style.css";
 
 const NotFoundPage = () => {
