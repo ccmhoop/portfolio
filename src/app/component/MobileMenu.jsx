@@ -1,7 +1,9 @@
 import { Link } from "react-router";
 import { HiSun, HiMoon } from "react-icons/hi";
+import { useAppContext } from "../context/AppContext";
 
-export default function MobileMenu({ isOpen, closeMenu, location, theme, toggleTheme }) {
+export default function MobileMenu({ isOpen, closeMenu, location }) {
+    const { theme, toggleTheme } = useAppContext();
     return (
         <aside className={`mobile-menu ${isOpen ? "mobile-open" : ""}`}>
             <nav aria-label="Main navigation">

@@ -2,12 +2,15 @@ import {Link, useLocation} from "react-router";
 import {HiMenu, HiX, HiSun, HiMoon} from "react-icons/hi";
 import {useState, useEffect} from "react";
 import MobileMenu from "./MobileMenu";
+import { useAppContext } from "../context/AppContext";
+import { globalOptions } from "../../options/options";
 
-export default function NavBar({ theme, toggleTheme }) {
+export default function NavBar() {
+    const { theme, toggleTheme } = useAppContext();
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const [displayName, setDisplayName] = useState("");
-    const fullName = "Conner de Hoop";
+    const fullName = globalOptions.fullName;
 
     useEffect(() => {
         let timeoutId;
@@ -123,8 +126,6 @@ export default function NavBar({ theme, toggleTheme }) {
                 isOpen={isOpen}
                 closeMenu={closeMenu}
                 location={location}
-                theme={theme}
-                toggleTheme={toggleTheme}
             />
         </div>
     )

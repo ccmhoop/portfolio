@@ -3,6 +3,7 @@ import "./Style.css"
 import picTest from "/projectTest.png";
 import ProjectCard from "./component/ProjectCard.jsx";
 import MobileProjectCard from "./component/MobileProjectCard.jsx";
+import {useAppContext} from "../../app/context/AppContext.jsx";
 
 const PROJECTS_DATA = [
     {
@@ -56,8 +57,8 @@ const PROJECTS_DATA = [
 ];
 
 const ProjectsPage = () => {
+    const {isMobile} = useAppContext();
     const scrollContainerRef = useRef(null);
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 640);
     const [activeIndex, setActiveIndex] = useState(0);
     const isJumping = useRef(false);
 
@@ -66,13 +67,6 @@ const ProjectsPage = () => {
 
     useEffect(() => {
         document.title = "Projects";
-        
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 640);
-        };
-
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     // Initial scroll position to the first real item

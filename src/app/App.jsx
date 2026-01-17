@@ -1,32 +1,11 @@
-import {useState, useEffect} from 'react'
 import './App.css'
 import {Outlet} from "react-router";
 import NavBar from "./component/Navbar.jsx";
 
 function App() {
-    const [theme, setTheme] = useState(() => {
-        return localStorage.getItem('theme') || 'light';
-    });
-
-    useEffect(() => {
-        const root = document.documentElement;
-        root.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-    }, [theme]);
-
-    const toggleTheme = () => {
-        setTheme(prev => {
-            if (prev === 'light') return 'dark';
-            if (prev === 'dark') return 'light';
-            
-            const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            return isSystemDark ? 'dark' : 'light';
-        });
-    };
-
     return (
         <div className="layout">
-            <NavBar theme={theme} toggleTheme={toggleTheme} />
+            <NavBar />
             <main className="content">
                 <Outlet/>
             </main>
