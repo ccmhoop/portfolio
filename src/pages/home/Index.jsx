@@ -1,11 +1,11 @@
 import {useEffect} from "react";
-import cvFile from "@/assets/docs/CVConnerDeHoop.pdf";
-import {globalOptions, homeOptions} from "@/data/pageData.js";
+import cvFile from "@/assets/files/CVConnerDeHoop.pdf";
+import {globalOptions} from "@/data/pageData.js";
+import {homeData} from "@/data/homeData.js";
 import {mapInterestsToLi, mapEducationToLi} from "./component/MapToElement.jsx";
 import "./Style.css";
 
 const HomePage = () => {
-
 
     useEffect(() => {
         document.title = globalOptions.name;
@@ -16,7 +16,7 @@ const HomePage = () => {
             <div className="about-wrapper">
                 <div className="social-profile-wrapper">
                     <div className="profile-picture-container">
-                        <img src={'./src/assets/images/photoConner.jpg'} alt={`${globalOptions.fullName} profile picture`}/>
+                        <img src={`${homeData.profilePicture}`} alt={`${globalOptions.fullName} profile picture`}/>
                     </div>
                     <h1>
                         {globalOptions.fullName}
@@ -24,13 +24,13 @@ const HomePage = () => {
 
                     <div className="logo-wrapper">
                         <a href="https://react.dev" target="_blank" rel="noreferrer">
-                            <img src={homeOptions.icons.reactIcon} className="logo" alt="React logo"/>
+                            <img src={`${homeData.icons.reactIcon}`} className="logo" alt="React logo"/>
                         </a>
                         <div className="logo-container">
-                            <img src={homeOptions.icons.javaIcon} className="logo" alt="Java logo"/>
+                            <img src={`${homeData.icons.javaIcon}`} className="logo" alt="Java logo"/>
                         </div>
                         <div className="logo-container">
-                            <img src={homeOptions.icons.springIcon} className="logo" alt="Spring logo"/>
+                            <img src={`${homeData.icons.springIcon}`} className="logo" alt="Spring logo"/>
                         </div>
                     </div>
                     <p>
@@ -40,12 +40,12 @@ const HomePage = () => {
                 <div className="card">
                     <div className="about-me-content">
                         <h2>
-                            {homeOptions.aboutMeTitle}
+                            {homeData.aboutMeTitle}
                         </h2>
                         <p>
-                            {homeOptions.aboutMeDescription}
+                            {homeData.aboutMeDescription}
                         </p>
-                        <a href={cvFile} download="CVConnerDeHoop.pdf" className="button">
+                        <a href={`${homeData.cvFile}`} download="CVConnerDeHoop.pdf" className="button">
                             <span>Download CV</span>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transition: 'transform 0.3s ease' }}>
                                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -57,7 +57,7 @@ const HomePage = () => {
                     <div className="interests-education-wrapper">
                         <div className="interests-container">
                             <h3>
-                                {homeOptions.interestsTitle}
+                                {homeData.interestsTitle}
                             </h3>
                             <ul>
                                 {mapInterestsToLi()}
@@ -65,7 +65,7 @@ const HomePage = () => {
                         </div>
                         <div className="education-container">
                             <h3>
-                                {homeOptions.educationTitle}
+                                {homeData.educationTitle}
                             </h3>
                             <ul>
                                 {mapEducationToLi()}
