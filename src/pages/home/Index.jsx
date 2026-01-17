@@ -11,7 +11,7 @@ import "./Style.css";
 const HomePage = () => {
 
     useEffect(() => {
-        document.title = globalOptions.fullName;
+        document.title = globalOptions.name;
     }, []);
 
     return (
