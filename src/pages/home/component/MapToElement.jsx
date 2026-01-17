@@ -1,14 +1,14 @@
-import {homeOptions} from '@/data/pageData.js'
+import {homeData} from "@/data/homeData.js";
 import {TbSchool} from "react-icons/tb";
 
 const mapInterestsToLi = () => {
-    return homeOptions.interestsArray.map((item, index) => {
+    return homeData.interestsArray.map((item, index) => {
         return <li key={index}>{item}</li>
     })
 }
 
 const mapEducationToLi = () => {
-    return homeOptions.educationObjectArray.map((item, index) => {
+    return homeData.educationObjectArray.map((item, index) => {
         return (
             <li key={index}>
                 <div className="education-header">
