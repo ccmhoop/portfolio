@@ -16,7 +16,7 @@ const HomePage = () => {
             <div className="about-wrapper">
                 <div className="social-profile-wrapper">
                     <div className="profile-picture-container">
-                        <img src={homeOptions.profilePicture} alt={`${globalOptions.fullName} profile picture`}/>
+                        <img src={'./src/assets/images/photoConner.jpg'} alt={`${globalOptions.fullName} profile picture`}/>
                     </div>
                     <h1>
                         {globalOptions.fullName}
