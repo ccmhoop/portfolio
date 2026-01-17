@@ -140,6 +140,42 @@ h1, h2, h3, h4 {
   letter-spacing: -0.02em;
 }
 
+.button {
+  border-radius: var(--radius-md);
+  padding: 0.8em 2em;
+  font-size: 1em;
+  font-weight: 600;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+  text-decoration: none;
+  line-height: 1;
+}
+
+.button span {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+}
+
+.button svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+.button:hover {
+  background-color: var(--primary-hover);
+  color: white;
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
+}
+
 button {
   border-radius: var(--radius-md);
   border: 1px solid var(--border-color);
@@ -160,11 +196,6 @@ button {
 
 button:hover {
   background-color: var(--primary-hover);
-  transform: translateY(-1px);
-}
-
-button:active {
-  transform: translateY(0);
 }
 
 button:focus-visible {

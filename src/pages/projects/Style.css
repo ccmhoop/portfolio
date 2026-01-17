@@ -164,7 +164,7 @@
 }
 
 .project-card-view-link:hover {
-    background: var(--primary-color);
+    background: var(--primary-hover);
     color: white;
 }
 
@@ -258,9 +258,9 @@
 }
 
 .project-card-button:hover {
-    background: var(--primary-color);
+    background: var(--primary-hover);
     color: white;
-    border-color: var(--primary-color);
+    border-color: var(--primary-hover);
     transform: none;
 }
 
@@ -485,6 +485,11 @@
         color: white;
         transition: all 0.3s ease;
         margin-top: auto;
+    }
+
+    .mobile-button:hover {
+        background: var(--primary-hover);
+        color: white;
     }
 
     .carousel-arrow {

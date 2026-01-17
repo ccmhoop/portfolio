@@ -33,9 +33,6 @@ export default function ProjectCard({
                     </div>
                 </div>
                 <p>{description}</p>
-                {/*<a href={link} className="project-card-button">*/}
-                {/*    Explore Details*/}
-                {/*</a>*/}
             </div>
         </div>
     )

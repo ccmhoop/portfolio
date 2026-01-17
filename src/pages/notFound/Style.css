@@ -1,0 +1,73 @@
+.not-found-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2em;
+    min-height: calc(100vh - 4.5em);
+}
+
+.not-found-card {
+    background: var(--card-bg);
+    padding: 3em;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.not-found-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.error-code {
+    font-size: 6rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    line-height: 1;
+    font-family: var(--font-heading);
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.2));
+}
+
+.not-found-card h1 {
+    margin: 0;
+    font-size: 2.25em;
+    color: var(--text-color);
+}
+
+.not-found-card p {
+    color: var(--text-muted);
+    font-size: 1.1em;
+    margin: 0;
+    max-width: 30ch;
+}
+
+.not-found-card .button {
+    margin-top: 1em;
+}
+
+@media (max-width: 480px) {
+    .not-found-card {
+        padding: 2em;
+    }
+    
+    .error-code {
+        font-size: 4rem;
+    }
+    
+    .not-found-card h1 {
+        font-size: 1.75em;
+    }
+}
