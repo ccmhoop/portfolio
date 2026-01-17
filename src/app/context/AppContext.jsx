@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 
-const AppContext = createContext();
+const AppContext = createContext(undefined);
 
 export const AppProvider = ({ children }) => {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 640);

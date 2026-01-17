@@ -64,9 +64,9 @@ export default function NavBar() {
 
     const getPageTitle = () => {
         switch (location.pathname) {
-            case "/portfolio/":
+            case "/":
                 return "About";
-            case "/portfolio/projects":
+            case "/projects":
                 return "Projects";
             default:
                 return "";
@@ -76,7 +76,7 @@ export default function NavBar() {
     return (
         <header className={`header-bar ${isOpen ? "mobile-menu-open" : ""}`}>
             <div className="header-grid-left">
-                <Link to="/portfolio/" className="name-container" onClick={closeMenu} aria-label="Home">
+                <Link to="/" className="name-container" onClick={closeMenu} aria-label="Home">
                     <div className="name-circle" aria-hidden="true">
                         <p>C</p>
                     </div>
@@ -93,18 +93,18 @@ export default function NavBar() {
                 <nav aria-label="Main navigation">
                     <ul>
                         <li>
-                            <Link to="/portfolio/"
-                                  className={(location.pathname === "/portfolio/" || location.pathname === "/portfolio/") ? "active" : ""}
+                            <Link to="/"
+                                  className={(location.pathname === "/" || location.pathname === "/") ? "active" : ""}
                                   onClick={closeMenu}
-                                  aria-current={location.pathname === "/portfolio/" ? "page" : undefined}>
+                                  aria-current={location.pathname === "/" ? "page" : undefined}>
                                 <span>About</span>
                             </Link>
                         </li>
                         <li>
-                            <Link to="/portfolio/projects"
-                                  className={location.pathname === "/portfolio/projects" ? "active" : ""}
+                            <Link to="/projects"
+                                  className={location.pathname === "/projects" ? "active" : ""}
                                   onClick={closeMenu}
-                                  aria-current={location.pathname === "/portfolio/projects" ? "page" : undefined}>
+                                  aria-current={location.pathname === "/projects" ? "page" : undefined}>
                                 <span>Projects</span>
                             </Link>
                         </li>

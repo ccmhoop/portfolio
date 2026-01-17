@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useRef, useEffect } from 'react';
 import { useAppContext } from '@/app/context/AppContext.jsx';
 
-const CarouselContext = createContext();
+const CarouselContext = createContext(undefined);
 
 export const CarouselProvider = ({ children, projectsData }) => {
     const { isMobile } = useAppContext();

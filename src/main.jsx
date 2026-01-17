@@ -2,15 +2,15 @@ import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
 import './index.css'
 import App from './app/App.jsx'
-import {createBrowserRouter, RouterProvider} from "react-router";
+import {createHashRouter, RouterProvider} from "react-router";
 import {HomePage} from "./pages/home/Index.jsx";
 import {NotFoundPage} from "./pages/notFound/Index.jsx";
 import {ProjectsPage} from "./pages/projects/Index.jsx";
 import {AppProvider} from "./app/context/AppContext.jsx";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
-        path: "/portfolio",
+        path: "/",
         element: <App />,
         children: [
             {

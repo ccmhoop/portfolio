@@ -9,18 +9,18 @@ export default function MobileMenu({ isOpen, closeMenu, location }) {
             <nav aria-label="Main navigation">
                 <ul>
                     <li>
-                        <Link to="/portfolio/"
-                              className={(location.pathname === "/portfolio/" || location.pathname === "/portfolio/") ? "active" : ""}
+                        <Link to="/"
+                              className={(location.pathname === "/" || location.pathname === "/") ? "active" : ""}
                               onClick={closeMenu}
-                              aria-current={location.pathname === "/portfolio/" ? "page" : undefined}>
+                              aria-current={location.pathname === "/" ? "page" : undefined}>
                             <span>About</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/portfolio/projects"
-                              className={location.pathname === "/portfolio/projects" ? "active" : ""}
+                        <Link to="/projects"
+                              className={location.pathname === "/projects" ? "active" : ""}
                               onClick={closeMenu}
-                              aria-current={location.pathname === "/portfolio/projects" ? "page" : undefined}>
+                              aria-current={location.pathname === "/projects" ? "page" : undefined}>
                             <span>Projects</span>
                         </Link>
                     </li>
