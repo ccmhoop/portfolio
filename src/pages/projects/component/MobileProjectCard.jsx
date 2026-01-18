@@ -1,4 +1,4 @@
-import picTest from "/projectTest.png";
+import picTest from "@/assets/images/projectTest.png";
 import { HiArrowUpRight } from "react-icons/hi2";
 
 export default function MobileProjectCard({ 
@@ -17,7 +17,7 @@ export default function MobileProjectCard({
             {...props}
         >
             <div className="mobile-project-image-container">
-                <img className="mobile-project-card-image" src={image} alt={`Screenshot of ${title}`}/>
+                <img className="mobile-project-card-image" src={`${image}`} alt={`Screenshot of ${title}`}/>
                 <span className="mobile-project-progress-badge" aria-label="Project completion progress">{progress}</span>
             </div>
             <div className="mobile-project-content-wrapper">

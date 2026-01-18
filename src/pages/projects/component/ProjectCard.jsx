@@ -1,4 +1,4 @@
-import picTest from "/projectTest.png";
+import picTest from "@/assets/images/projectTest.png";
 import { HiArrowUpRight } from "react-icons/hi2";
 
 export default function ProjectCard({ 
@@ -13,7 +13,7 @@ export default function ProjectCard({
     return (
         <article className="project-card">
             <div className="project-card-image-container">
-                <img className="project-card-image" src={image} alt={`Screenshot of ${title}`}/>
+                <img className="project-card-image" src={`${image}`} alt={`Screenshot of ${title}`}/>
                 <div className="project-card-overlay">
                     <a href={link} className="project-card-view-link" target="_blank" rel="noopener noreferrer">
                         View Project <HiArrowUpRight aria-hidden="true" />

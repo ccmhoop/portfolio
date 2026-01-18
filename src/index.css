@@ -30,7 +30,7 @@
 [data-theme='light'] body,
 :root:not([data-theme]) body,
 body {
-  background-image: url("/sunBackground.jpg");
+  background-image: url("./assets/images/sunBackground.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -60,7 +60,7 @@ body {
   }
 
   :root[data-theme='system'] body {
-    background-image: url("/background.jpg");
+    background-image: url("./assets/images/background.jpg");
     background-color: #0f172a;
   }
 }
@@ -113,7 +113,7 @@ body {
 }
 
 [data-theme='dark'] body {
-  background-image: url("/background.jpg");
+  background-image: url("./assets/images/background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
