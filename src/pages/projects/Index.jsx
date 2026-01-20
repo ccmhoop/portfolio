@@ -1,71 +1,62 @@
-import {useEffect} from "react";
-import "./Style.css"
-import {projectCardData} from "@/data/pageData.js";
+import { useEffect, useMemo } from "react";
+import "./Style.css";
+
+import { projectCardData } from "@/data/projectData.js";
 import ProjectCard from "./component/ProjectCard.jsx";
-import {useAppContext} from "@/app/context/AppContext.jsx";
-import {CarouselProvider, useCarouselContext} from "./context/CarouselContext.jsx";
-import MobileProjectsCarousel from "./component/MobileProjectsCarousel.jsx";
+import MobileProjectCard from "./component/MobileProjectCard.jsx";
+
+import { useAppContext } from "@/app/context/AppContext.jsx";
+import Carousel from "@/app/component/carousel/Carousel.jsx";
 
 const ProjectsContent = () => {
-    const {isMobile} = useAppContext();
-    const { 
-        activeIndex, 
-        scrollContainerRef, 
-        handleDotClick, 
-        projectCount 
-    } = useCarouselContext();
+    const { isMobile } = useAppContext();
 
     useEffect(() => {
         document.title = "Projects";
     }, []);
 
+    const mobileCarouselItems = useMemo(
+        () =>
+            projectCardData.map((project, index) => (
+                <MobileProjectCard
+                    key={project.id ?? index}
+                    {...project}
+                />
+            )),
+        []
+    );
+
+    const mobileCarouselTitles = useMemo(
+        () => projectCardData.map((project) => project.title),
+        []
+    );
+
+    if (isMobile) {
+        return (
+            <section className="projects-page mobile-page-container">
+                <Carousel titles={mobileCarouselTitles}>
+                    {mobileCarouselItems}
+                </Carousel>
+            </section>
+        );
+    }
+
     return (
         <section className="projects-page">
-            {isMobile && (
-                <div className="mobile-projects-filler" aria-hidden="true">
-                    <div className="filler-line"></div>
-                    <span className="filler-text">
-                        {projectCardData[activeIndex]?.title || "SELECTED WORKS"}
-                    </span>
-                    <div className="filler-line"></div>
-                </div>
-            )}
-
-            <div className="projects-carousel-wrapper">
-                <div className="projects-layout-container" ref={scrollContainerRef}>
-                    {!isMobile ? (
-                        projectCardData.map((project, index) => (
-                            <ProjectCard key={index} {...project} />
-                        ))
-                    ) : (
-                        <MobileProjectsCarousel />
-                    )}
-                </div>
+            <div className="projects-layout-container">
+                {projectCardData.map((project, index) => (
+                    <ProjectCard
+                        key={project.id ?? index}
+                        {...project}
+                    />
+                ))}
             </div>
-
-            {isMobile && (
-                <nav className="carousel-dots" aria-label="Projects pagination">
-                    {Array.from({ length: projectCount }).map((_, i) => (
-                        <button
-                            key={i}
-                            className={`carousel-dot ${activeIndex === i ? 'active' : ''}`}
-                            onClick={() => handleDotClick(i)}
-                            aria-label={`Go to project ${i + 1}`}
-                            aria-current={activeIndex === i ? 'true' : 'false'}
-                        />
-                    ))}
-                </nav>
-            )}
         </section>
-    )
-}
+    );
+};
 
 const ProjectsPage = () => {
-    return (
-        <CarouselProvider projectsData={projectCardData}>
-            <ProjectsContent />
-        </CarouselProvider>
-    );
-}
+    return <ProjectsContent />;
+};
 
-export {ProjectsPage}
+export { ProjectsPage };

@@ -1,21 +1,30 @@
 import {homeData} from "@/data/homeData.js";
-import {TbSchool} from "react-icons/tb";
+import {TbSchool, TbCircleCheck} from "react-icons/tb";
 
 const mapInterestsToLi = () => {
     return homeData.interestsArray.map((item, index) => {
-        return <li key={index}>{item}</li>
+        return (
+            <li key={index} className="interest-item">
+                <TbCircleCheck className="interest-icon" />
+                <span>{item}</span>
+            </li>
+        )
     })
 }
 
 const mapEducationToLi = () => {
     return homeData.educationObjectArray.map((item, index) => {
         return (
-            <li key={index}>
+            <li key={index} className="education-item">
                 <div className="education-header">
-                    <TbSchool size={20} aria-hidden="true" />
-                    <strong>{item.course}</strong>
+                    <div className="education-icon-wrapper">
+                        <TbSchool size={20} aria-hidden="true" />
+                    </div>
+                    <div className="education-info">
+                        <strong className="education-course">{item.course}</strong>
+                        <span className="education-school">{item.school}</span>
+                    </div>
                 </div>
-                <span className="education-school">{item.school}</span>
             </li>
         )
     })

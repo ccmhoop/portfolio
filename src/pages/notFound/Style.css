@@ -8,13 +8,9 @@
 }
 
 .not-found-card {
-    background: var(--card-bg);
     padding: 3em;
     border-radius: var(--radius-lg);
-    border: 1px solid var(--border-color);
     box-shadow: var(--shadow-lg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     max-width: 500px;
     width: 100%;
     text-align: center;
@@ -38,7 +34,7 @@
     background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.2));
+    filter: drop-shadow(0 4px 12px rgba(var(--primary-rgb), 0.2));
 }
 
 .not-found-card h1 {

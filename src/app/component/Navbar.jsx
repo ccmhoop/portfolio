@@ -3,14 +3,14 @@ import {HiMenu, HiX, HiSun, HiMoon} from "react-icons/hi";
 import {useState, useEffect} from "react";
 import MobileMenu from "./MobileMenu";
 import { useAppContext } from "../context/AppContext";
-import { globalOptions } from "@/data/pageData.js";
+import { globalAppData } from "@/data/pageData.js";
 
 export default function NavBar() {
     const { theme, toggleTheme } = useAppContext();
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const [displayName, setDisplayName] = useState("");
-    const fullName = globalOptions.fullName;
+    const fullName = globalAppData.fullName;
 
     useEffect(() => {
         let timeoutId;
@@ -25,7 +25,7 @@ export default function NavBar() {
                     timeoutId = setTimeout(animate, 200);
                 } else {
                     isDeleting = true;
-                    timeoutId = setTimeout(animate, 2000); // Pause at full name
+                    timeoutId = setTimeout(animate, 2000);
                 }
             } else {
                 if (currentIndex > 0) {
@@ -34,7 +34,7 @@ export default function NavBar() {
                     timeoutId = setTimeout(animate, 100);
                 } else {
                     isDeleting = false;
-                    timeoutId = setTimeout(animate, 500); // Pause before restarting
+                    timeoutId = setTimeout(animate, 500);
                 }
             }
         };

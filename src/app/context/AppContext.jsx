@@ -5,16 +5,29 @@ const AppContext = createContext(undefined);
 export const AppProvider = ({ children }) => {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 640);
     const [theme, setTheme] = useState(() => {
-        return localStorage.getItem('theme') || 'light';
+        return localStorage.getItem('theme') || 'dark';
     });
 
     useEffect(() => {
         const root = document.documentElement;
+        
+
+        root.classList.add('no-transition');
+        
         root.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
+
+        const timeout = setTimeout(() => {
+            root.classList.remove('no-transition');
+        }, 50);
+        
+        return () => clearTimeout(timeout);
     }, [theme]);
 
     const toggleTheme = () => {
+        const root = document.documentElement;
+        root.classList.add('theme-transitioning');
+        
         setTheme(prev => {
             if (prev === 'light') return 'dark';
             if (prev === 'dark') return 'light';
@@ -22,6 +35,10 @@ export const AppProvider = ({ children }) => {
             const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             return isSystemDark ? 'dark' : 'light';
         });
+
+        setTimeout(() => {
+            root.classList.remove('theme-transitioning');
+        }, 450);
     };
 
     useEffect(() => {
